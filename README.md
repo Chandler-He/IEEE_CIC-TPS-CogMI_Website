@@ -7,3 +7,5 @@
 ### 4- Build the site and make it available on a local server.
    bundle exec jekyll serve
 ### 5- Browse to http://localhost:4000/
+
+We have 3 branches, CIC, TPS, Cogmi, make sure switch among those branches.
