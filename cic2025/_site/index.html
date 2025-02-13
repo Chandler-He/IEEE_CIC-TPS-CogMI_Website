@@ -38,15 +38,9 @@
 <link rel="stylesheet" href="/cic2025/assets/css/shortcode_timeline2.css">
 <link rel="stylesheet" href="/cic2025/assets/css/blue.css">
 <link rel="stylesheet" href="/cic2025/assets/css/custom1.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- 自定义 CSS -->
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
 </head>
 
 <body class="header-fixed">
@@ -576,211 +570,227 @@
                     <hr>
                     <!--Important Dates & Notifications END-->
 
-                    
-                    <!-- Past keynote speakers start -->
-                    <!-- Keynote Speakers 部分开始 -->
-                    <h3 class="text-left">Keynote Speakers for IEEE CIC/CogMI/TPS 2024</h3>
+
+
+
+                    <!-- 主标题部分：点击后展开/收起所有 keynote speaker 信息 -->
+                    <h3 class="text-left" id="keynoteHeader" style="cursor:pointer;" aria-expanded="false">
+                        Keynote Speakers for IEEE CIC/CogMI/TPS 2024
+                    </h3>
                     <hr>
-                    <h6>Keynote Speakers (Last Names in Alphabetical Order)</h6>
-                    <hr>
-                    <div class="panel-group accordion" id="keynoteAccordion" role="tablist" aria-multiselectable="true">
-                        <!-- Panel 1: Ed H. Chi -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingChi">
-                                <h4 class="panel-title">
-                                    <a role="button" data-toggle="collapse" data-parent="#keynoteAccordion"
-                                        href="#collapseChi" aria-expanded="true" aria-controls="collapseChi">
-                                        <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
-                                        Ed H. Chi - The Future of Discovery Assistance
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseChi" class="panel-collapse collapse in" role="tabpanel"
-                                aria-labelledby="headingChi">
-                                <div class="panel-body">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <!-- 根据需要替换图片地址 -->
-                                            <img src="../../../common/resources/images/ed.jpg" class="media-object"
-                                                alt="Ed H. Chi" width="100">
-                                        </div>
-                                        <div class="media-body">
-                                            <p>
-                                                <a href="https://www.edchi.net/home" target="_blank"><strong>Ed H.
-                                                        Chi</strong></a>
-                                                <!-- <span class="glyphicon glyphicon-new-window"></span> -->
-                                            </p>
-                                            <p><em>Distinguished Scientist &amp; Research Lead at Google DeepMind</em>
-                                            </p>
-                                            <p><em>Google Inc, USA</em></p>
-                                            <p><em>Day/Time: Oct. 28, 2024 / 01:30 PM – 02:30 PM</em></p>
-                                            <p>
-                                                <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
-                                                    target="_blank">See Abstract Here</a>
-                                            </p>
+
+
+                    <!-- 被折叠的内容区域 -->
+                    <div id="keynoteContent" class="collapse">
+                        <h6>Keynote Speakers (Last Names in Alphabetical Order)</h6>
+                        <hr>
+                        <div class="panel-group accordion" id="keynoteAccordion" role="tablist"
+                            aria-multiselectable="true">
+
+                            <!-- Panel 1: Ed H. Chi -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingChi">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#keynoteAccordion"
+                                            href="#collapseChi" aria-expanded="false" aria-controls="collapseChi">
+                                            Ed H. Chi - The Future of Discovery Assistance
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseChi" class="panel-collapse collapse" role="tabpanel"
+                                    aria-labelledby="headingChi">
+                                    <div class="panel-body">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="../../common/resources/images/ed.jpg" class="media-object"
+                                                    alt="Ed H. Chi" width="100">
+                                            </div>
+                                            <div class="media-body">
+                                                <p>
+                                                    <a href="https://www.edchi.net/home" target="_blank"><strong>Ed H.
+                                                            Chi</strong></a>
+                                                </p>
+                                                <p><em>Distinguished Scientist &amp; Research Lead at Google
+                                                        DeepMind</em></p>
+                                                <p><em>Google Inc, USA</em></p>
+                                                <p><em>Day/Time: Oct. 28, 2024 / 01:30 PM – 02:30 PM</em></p>
+                                                <p>
+                                                    <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
+                                                        target="_blank">
+                                                        See Abstract Here
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Panel 2: Michael L. Littman -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingLittman">
-                                <h4 class="panel-title">
-                                    <a role="button" class="collapsed" data-toggle="collapse"
-                                        data-parent="#keynoteAccordion" href="#collapseLittman" aria-expanded="false"
-                                        aria-controls="collapseLittman">
-                                        <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
-                                        Michael L. Littman - The NSF's Role in the Future of AI
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseLittman" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingLittman">
-                                <div class="panel-body">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="../../../common/resources/images/michael.jpeg" class="media-object"
-                                                alt="Michael L. Littman" width="100">
-                                        </div>
-                                        <div class="media-body">
-                                            <p>
-                                                <a href="https://vivo.brown.edu/display/mlittman"
-                                                    target="_blank"><strong>Michael L. Littman</strong></a>
-                                                <!-- <span class="glyphicon glyphicon-new-window"></span> -->
-                                            </p>
-                                            <p><em>Division Director, NSF Information and Intelligent Systems (IIS)
-                                                    Division</em></p>
-                                            <p><em>Professor, Brown University, USA</em></p>
-                                            <p><em>Day/Time: Oct. 29, 2024 / 8:45 AM – 9:45 AM</em></p>
-                                            <p>
-                                                <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
-                                                    target="_blank">See Abstract Here</a>
-                                            </p>
+
+                            <!-- Panel 2: Michael L. Littman -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingLittman">
+                                    <h4 class="panel-title">
+                                        <a role="button" class="collapsed" data-toggle="collapse"
+                                            data-parent="#keynoteAccordion" href="#collapseLittman"
+                                            aria-expanded="false" aria-controls="collapseLittman">
+                                            Michael L. Littman - The NSF's Role in the Future of AI
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseLittman" class="panel-collapse collapse" role="tabpanel"
+                                    aria-labelledby="headingLittman">
+                                    <div class="panel-body">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="../../common/resources/images/michael.jpeg"
+                                                    class="media-object" alt="Michael L. Littman" width="100">
+                                            </div>
+                                            <div class="media-body">
+                                                <p>
+                                                    <a href="https://vivo.brown.edu/display/mlittman"
+                                                        target="_blank"><strong>Michael L. Littman</strong></a>
+                                                </p>
+                                                <p><em>Division Director, NSF Information and Intelligent Systems (IIS)
+                                                        Division</em></p>
+                                                <p><em>Professor, Brown University, USA</em></p>
+                                                <p><em>Day/Time: Oct. 29, 2024 / 8:45 AM – 9:45 AM</em></p>
+                                                <p>
+                                                    <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
+                                                        target="_blank">
+                                                        See Abstract Here
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Panel 3: Ling Liu -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingLiu">
-                                <h4 class="panel-title">
-                                    <a role="button" class="collapsed" data-toggle="collapse"
-                                        data-parent="#keynoteAccordion" href="#collapseLiu" aria-expanded="false"
-                                        aria-controls="collapseLiu">
-                                        <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
-                                        Ling Liu - Responsible Adaptation of Large Generative AI Models
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseLiu" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingLiu">
-                                <div class="panel-body">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="../../../common/resources/images/LingLiu.jpeg" class="media-object"
-                                                alt="Ling Liu" width="100">
-                                        </div>
-                                        <div class="media-body">
-                                            <p>
-                                                <a href="https://www.cc.gatech.edu/people/ling-liu"
-                                                    target="_blank"><strong>Ling Liu</strong></a>
-                                                <!-- <span class="glyphicon glyphicon-new-window"></span> -->
-                                            </p>
-                                            <p><em>Professor, Georgia Institute of Technology, USA</em></p>
-                                            <p><em>Day/Time: Oct. 28, 2024 / 09:45 AM – 10:45 AM</em></p>
-                                            <p>
-                                                <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
-                                                    target="_blank">See Abstract Here</a>
-                                            </p>
+
+                            <!-- Panel 3: Ling Liu -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingLiu">
+                                    <h4 class="panel-title">
+                                        <a role="button" class="collapsed" data-toggle="collapse"
+                                            data-parent="#keynoteAccordion" href="#collapseLiu" aria-expanded="false"
+                                            aria-controls="collapseLiu">
+                                            Ling Liu - Responsible Adaptation of Large Generative AI Models
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseLiu" class="panel-collapse collapse" role="tabpanel"
+                                    aria-labelledby="headingLiu">
+                                    <div class="panel-body">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="../../common/resources/images/LingLiu.jpeg"
+                                                    class="media-object" alt="Ling Liu" width="100">
+                                            </div>
+                                            <div class="media-body">
+                                                <p>
+                                                    <a href="https://www.cc.gatech.edu/people/ling-liu"
+                                                        target="_blank"><strong>Ling Liu</strong></a>
+                                                </p>
+                                                <p><em>Professor, Georgia Institute of Technology, USA</em></p>
+                                                <p><em>Day/Time: Oct. 28, 2024 / 09:45 AM – 10:45 AM</em></p>
+                                                <p>
+                                                    <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
+                                                        target="_blank">
+                                                        See Abstract Here
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Panel 4: Roshan Thapliya -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingThapliya">
-                                <h4 class="panel-title">
-                                    <a role="button" class="collapsed" data-toggle="collapse"
-                                        data-parent="#keynoteAccordion" href="#collapseThapliya" aria-expanded="false"
-                                        aria-controls="collapseThapliya">
-                                        <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
-                                        Roshan Thapliya - Transforming Society: TDK’s Vision Accelerated by Digital
-                                        Transformation
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseThapliya" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingThapliya">
-                                <div class="panel-body">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="../../../common/resources/images/roshan.png" class="media-object"
-                                                alt="Roshan Thapliya" width="100">
-                                        </div>
-                                        <div class="media-body">
-                                            <p>
-                                                <a href="https://www.linkedin.com/in/roshan-thapliya-phd-21401658/?originalSubdomain=jp"
-                                                    target="_blank"><strong>Roshan Thapliya</strong></a>
-                                                <!-- <span class="glyphicon glyphicon-new-window"></span> -->
-                                            </p>
-                                            <p><em>Corporate Officer, Chief Digital Transformation Officer and General
-                                                    Manager</em></p>
-                                            <p><em>TDK Corporation, Tokyo, Japan</em></p>
-                                            <p><em>Day/Time: Oct. 29, 2024 / 02:00 PM – 03:00 PM</em></p>
-                                            <p>
-                                                <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
-                                                    target="_blank">See Abstract Here</a>
-                                            </p>
+
+                            <!-- Panel 4: Roshan Thapliya -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThapliya">
+                                    <h4 class="panel-title">
+                                        <a role="button" class="collapsed" data-toggle="collapse"
+                                            data-parent="#keynoteAccordion" href="#collapseThapliya"
+                                            aria-expanded="false" aria-controls="collapseThapliya">
+                                            Roshan Thapliya - Transforming Society: TDK’s Vision Accelerated by Digital
+                                            Transformation
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseThapliya" class="panel-collapse collapse" role="tabpanel"
+                                    aria-labelledby="headingThapliya">
+                                    <div class="panel-body">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="../../common/resources/images/roshan.png" class="media-object"
+                                                    alt="Roshan Thapliya" width="100">
+                                            </div>
+                                            <div class="media-body">
+                                                <p>
+                                                    <a href="https://www.linkedin.com/in/roshan-thapliya-phd-21401658/?originalSubdomain=jp"
+                                                        target="_blank">
+                                                        <strong>Roshan Thapliya</strong>
+                                                    </a>
+                                                </p>
+                                                <p><em>Corporate Officer, Chief Digital Transformation Officer and
+                                                        General Manager</em></p>
+                                                <p><em>TDK Corporation, Tokyo, Japan</em></p>
+                                                <p><em>Day/Time: Oct. 29, 2024 / 02:00 PM – 03:00 PM</em></p>
+                                                <p>
+                                                    <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
+                                                        target="_blank">
+                                                        See Abstract Here
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- Panel 5: Jeannette M. Wing -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading" role="tab" id="headingWing">
-                                <h4 class="panel-title">
-                                    <a role="button" class="collapsed" data-toggle="collapse"
-                                        data-parent="#keynoteAccordion" href="#collapseWing" aria-expanded="false"
-                                        aria-controls="collapseWing">
-                                        <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
-                                        Jeannette M. Wing - Trustworthy AI
-                                    </a>
-                                </h4>
-                            </div>
-                            <div id="collapseWing" class="panel-collapse collapse" role="tabpanel"
-                                aria-labelledby="headingWing">
-                                <div class="panel-body">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="../../../common/resources/images/win.jpg" class="media-object"
-                                                alt="Jeannette M. Wing" width="100">
-                                        </div>
-                                        <div class="media-body">
-                                            <p>
-                                                <a href="https://datascience.columbia.edu/people/jeannette-m-wing/"
-                                                    target="_blank"><strong>Jeannette M. Wing</strong></a>
-                                                <!-- <span class="glyphicon glyphicon-new-window"></span> -->
-                                            </p>
-                                            <p><em>Executive Vice President for Research and Professor of Computer
-                                                    Science</em></p>
-                                            <p><em>Columbia University, USA</em></p>
-                                            <p><em>Day/Time: Oct. 28, 2024 / 08:45 AM – 09:45 AM</em></p>
-                                            <p>
-                                                <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
-                                                    target="_blank">See Abstract Here</a>
-                                            </p>
+
+                            <!-- Panel 5: Jeannette M. Wing -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingWing">
+                                    <h4 class="panel-title">
+                                        <a role="button" class="collapsed" data-toggle="collapse"
+                                            data-parent="#keynoteAccordion" href="#collapseWing" aria-expanded="false"
+                                            aria-controls="collapseWing">
+                                            Jeannette M. Wing - Trustworthy AI
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseWing" class="panel-collapse collapse" role="tabpanel"
+                                    aria-labelledby="headingWing">
+                                    <div class="panel-body">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="../../common/resources/images/win.jpg" class="media-object"
+                                                    alt="Jeannette M. Wing" width="100">
+                                            </div>
+                                            <div class="media-body">
+                                                <p>
+                                                    <a href="https://datascience.columbia.edu/people/jeannette-m-wing/"
+                                                        target="_blank">
+                                                        <strong>Jeannette M. Wing</strong>
+                                                    </a>
+                                                </p>
+                                                <p><em>Executive Vice President for Research and Professor of Computer
+                                                        Science</em></p>
+                                                <p><em>Columbia University, USA</em></p>
+                                                <p><em>Day/Time: Oct. 28, 2024 / 08:45 AM – 09:45 AM</em></p>
+                                                <p>
+                                                    <a href="https://www.sis.pitt.edu/lersais/conference/cic/2024/keynotes.html"
+                                                        target="_blank">
+                                                        See Abstract Here
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div><!-- end #keynoteAccordion -->
-                    <!-- Keynote Speakers 部分结束 -->
-                    <!-- keynote speakers end -->
+
+                        </div><!-- end #keynoteAccordion -->
+                    </div><!-- end #keynoteContent -->
 
 
                     <!-- Statement -->
@@ -1115,10 +1125,23 @@
 <![endif]-->
 
     <!--=== End scripts ===-->
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          // 点击主标题时，切换 #keynoteContent 的展开/收起状态
+          $('#keynoteHeader').click(function(){
+            $('#keynoteContent').collapse('toggle');
+          });
+          
+          // 根据展开/收起状态更新主标题的 aria-expanded 属性（可选）
+          $('#keynoteContent').on('shown.bs.collapse', function(){
+            $('#keynoteHeader').attr('aria-expanded', 'true');
+          });
+          $('#keynoteContent').on('hidden.bs.collapse', function(){
+            $('#keynoteHeader').attr('aria-expanded', 'false');
+          });
+        });
+      </script>
+    
 </body>
 
 </html>

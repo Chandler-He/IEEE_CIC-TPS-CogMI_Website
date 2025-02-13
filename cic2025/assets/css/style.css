@@ -61,50 +61,66 @@
 s
 /* ====================== */
 
-/* ===========keynote index page styles====================  */
-/* Keynote Speakers 折叠面板样式 */
+/* =========== Keynote Index Page Styles ==================== */
+/* Accordion 容器样式 */
 .accordion {
 	margin: 20px 0;
 	border: 1px solid #ddd;
 	border-radius: 4px;
   }
-.accordion .panel {
+  
+  /* 移除 panel 默认边框和阴影 */
+  .accordion .panel {
 	border: none;
 	box-shadow: none;
   }
-.accordion .panel-heading {
+  
+  /* panel-heading 样式 */
+  .accordion .panel-heading {
 	background-color: #f7f7f7;
 	padding: 15px 20px;
 	border-bottom: 1px solid #ddd;
 	cursor: pointer;
+	transition: background-color 0.3s ease;
   }
-.accordion .panel-title a {
+  
+  /* 激活状态下的 panel-heading */
+  .accordion .panel-heading.active {
+	background-color: #e2e2e2;
+  }
+  
+  /* panel-title 链接样式 */
+  .accordion .panel-title a {
 	display: block;
 	text-decoration: none;
 	font-size: 18px;
 	font-weight: bold;
 	color: #333;
   }
-.accordion .panel-title a:hover,
-.accordion .panel-title a:focus {
+  
+  /* hover 和 focus 状态 */
+  .accordion .panel-title a:hover,
+  .accordion .panel-title a:focus {
 	text-decoration: none;
 	color: #007bff;
   }
+  
+  /* panel-body 样式 */
 .accordion .panel-body {
 	padding: 20px;
 	background-color: #fff;
 	border-top: 1px solid #ddd;
 	min-height: 120px;  /* 保证面板内有足够展示空间 */
   }
-.accordion .glyphicon-chevron-down {
-	margin-right: 10px;
-	transition: transform 0.3s;
+.keynoteHeader a {
+	color: #337ab7;       /* 你也可以使用其他你喜欢的超链接颜色 */
+	text-decoration: none; /* 去除下划线 */
   }
-  /* 面板展开时旋转图标 */
-.panel-heading.active .glyphicon-chevron-down {
-	transform: rotate(180deg);
+.keynoteHeader a:hover,
+.keynoteHeader a:focus {
+	text-decoration: underline;
   }
-/* =======end======== */
+  /* =========end============= */
 
 
 body { 
