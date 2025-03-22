@@ -15,7 +15,6 @@ GEM
     ffi (1.17.1-arm-linux-gnu)
     ffi (1.17.1-arm-linux-musl)
     ffi (1.17.1-arm64-darwin)
-    ffi (1.17.1-x64-mingw-ucrt)
     ffi (1.17.1-x86-linux-gnu)
     ffi (1.17.1-x86-linux-musl)
     ffi (1.17.1-x86_64-darwin)
@@ -67,7 +66,7 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rexml (3.4.0)
+    rexml (3.4.1)
     rouge (3.30.0)
     safe_yaml (1.0.5)
     sassc (2.4.0)
@@ -89,7 +88,6 @@ PLATFORMS
   arm-linux-musl
   arm64-darwin
   ruby
-  x64-mingw-ucrt
   x86-linux-gnu
   x86-linux-musl
   x86_64-darwin
