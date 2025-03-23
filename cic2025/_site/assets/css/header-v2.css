@@ -884,7 +884,7 @@ topbar including in mobile version*/
 }
 
 .header-fixed .header-v2.header-fixed-shrink .navbar-brand img {
-	width:50px;
+	width:150px;
 	-webkit-filter: brightness(100%);
 	filter: brightness(100%);
 }
