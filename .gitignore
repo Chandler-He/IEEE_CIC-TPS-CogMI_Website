@@ -1,5 +1,5 @@
 .DS_Store
-**/jekyll-cache
-**/_site
+**/.jekyll-cache
+**/_site/
 **/Gemfile
 **/Gemfile.lock
