@@ -61,7 +61,7 @@
 
 #organizers ul li.person-card a img {
     /* width: 170px; */
-    height: 150px;
+    max-height: 200px;
     display: block;
     margin: 0 auto 5px;
     padding: 2px;
