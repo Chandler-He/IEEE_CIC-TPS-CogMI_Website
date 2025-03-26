@@ -48,10 +48,10 @@ exclude:
   - notebooks/*
 
 # url: cic2025.github.io
-baseurl: /cogmi2025
-baseurl1: /cogmi2025
-# baseurl: ..
-# baseurl1: .
+# baseurl: /cogmi2025
+# baseurl1: /cogmi2025
+baseurl: ..
+baseurl1: .
 
 # Exclude from processing.
 # The following items will not be processed, by default.
