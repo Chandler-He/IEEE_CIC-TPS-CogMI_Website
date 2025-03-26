@@ -45,7 +45,7 @@
     list-style: none;
     width: 33%;
     float: left;
-    height: 220px;
+    height: 260px;
     overflow: hidden;
     text-align: center;
     font-size: 10px;
@@ -60,7 +60,7 @@
 }
 
 #organizers ul li.person-card a img {
-    width: 170px;
+    /* width: 170px; */
     height: 150px;
     display: block;
     margin: 0 auto 5px;
