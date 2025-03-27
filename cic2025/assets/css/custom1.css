@@ -61,7 +61,7 @@
 
 #organizers ul li.person-card a img {
     /* width: 170px; */
-    height: 150px;
+    max-height: 200px;
     display: block;
     margin: 0 auto 5px;
     padding: 2px;
@@ -188,7 +188,7 @@ blockquote.hero {
     }
 
     .timeline-v2:before {
-        left: 18%
+        left: 20%
     }
 
     .timeline-v2>li .cbp_tmlabel {
@@ -196,7 +196,7 @@ blockquote.hero {
     }
 
     .timeline-v2>li .cbp_tmicon {
-        left: 18%
+        left: 20%
     }
 }
 
