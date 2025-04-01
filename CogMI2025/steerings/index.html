@@ -10,6 +10,7 @@ title: "blank"
 <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="en"> <!--<![endif]-->
+
 <head>
     <title>IEEE CogMI 2025</title>
     {% include head.html %}
@@ -38,93 +39,100 @@ title: "blank"
 
 
 
-    <div class="bg-color-light">
-        <div class="container-fluid" style="padding-left: 0 !important;
-            padding-right: 0 !important;">
+        <div class="bg-color-light">
             <div class="news-v3 margin-bottom-30">
                 {% include banner.html %}
-                <!-- Contents goes here -->
-                <div class="col-md-8" style="margin-left: 3%;"><!-- outter container  -->
-                <div class="news-v3-in">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <ul class="no-padding margin-left-10 organizers-type-list hidden-xs" id="sidebar-nav">
-                                <!-- Typography -->
+            </div>
+            <div class="container">
+                <div class="row">
+                    <!-- Contents goes here -->
+                    <div class="col-md-9"><!-- outter container  -->
+                        <div class="news-v3-in">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <ul class="no-padding margin-left-10 organizers-type-list hidden-xs"
+                                        id="sidebar-nav">
+                                        <!-- Typography -->
 
-                                <li class=""><a href="#General">Chair</a></li>
-                                <li class=""><a href="#Members">Members</a></li>
-                                
-                            </ul>
-                        </div>
-                        <div class="col-md-9">
-                            <div id="organizers">
+                                        <li class=""><a href="#General">Chair</a></li>
+                                        <li class=""><a href="#Members">Members</a></li>
 
-                                <h2>Steering Committees</h2>
-                                <h4 id="General">Chair</h4>
-                                <ul>
-                                    <li >
-                                        <i>James Joshi, University of Pittsburgh, USA</i>
-                                    </li>
-                                </ul>
+                                    </ul>
+                                </div>
+                                <div class="col-md-9">
+                                    <div id="organizers">
 
-                                <h4 id="Members">Members</h4>
-                                <ul>
-                                    <li >
-                                        <i>Arun Iyengar, Cisco, USA</i>
-                                    </li>
-                                    <li >
-                                        <i>Calton Pu, Georgia Institute of Technology, USA</i>
-                                    </li>
-                                    <li >
-                                        <i>Dimitrios Gerogakopolous, Swinsburne University of Technology, Australia</i>
-                                    </li>
-                                    <li >
-                                        <i>Elisa Bertino, Purdue University, USA</i>
-                                    </li>
-                                    <li >
-                                        <i>Karl Aberer, EPFL, Switzerland</i>
-                                    </li>
-                                    <li >
-                                        <i>Ling Liu, Georgia Institute of Technology, USA</i>
-                                    </li>
-                                    <li >
-                                        <i>M. Brian Blake, President of Georgia State University, USA</i>
-                                    </li>
-                                    <li >
-                                        <i>Tao Zhang, NIST, USA</i>
-                                    </li>
-                                    <li >
-                                        <i>Weisong Shi, University of Delaware, USA</i>
-                                    </li>
-                                    <li >
-                                        <i>Zhaohui Wu, Zhejiang University, China</i>
-                                    </li>
+                                        <h2>Steering Committees</h2>
+                                        <h4 id="General">Chair</h4>
+                                        <ul>
+                                            <li>
+                                                <i>James Joshi, University of Pittsburgh, USA</i>
+                                            </li>
+                                        </ul>
 
-                                </ul>
-                                
-                                <div style="height: 30px; clear: both;"></div>
-                                                               
+                                        <h4 id="Members">Members</h4>
+                                        <ul>
+                                            <li>
+                                                <i>Arun Iyengar, Cisco, USA</i>
+                                            </li>
+                                            <li>
+                                                <i>Calton Pu, Georgia Institute of Technology, USA</i>
+                                            </li>
+                                            <li>
+                                                <i>Dimitrios Gerogakopolous, Swinsburne University of Technology,
+                                                    Australia</i>
+                                            </li>
+                                            <li>
+                                                <i>Elisa Bertino, Purdue University, USA</i>
+                                            </li>
+                                            <li>
+                                                <i>Karl Aberer, EPFL, Switzerland</i>
+                                            </li>
+                                            <li>
+                                                <i>Ling Liu, Georgia Institute of Technology, USA</i>
+                                            </li>
+                                            <li>
+                                                <i>M. Brian Blake, President of Georgia State University, USA</i>
+                                            </li>
+                                            <li>
+                                                <i>Tao Zhang, NIST, USA</i>
+                                            </li>
+                                            <li>
+                                                <i>Weisong Shi, University of Delaware, USA</i>
+                                            </li>
+                                            <li>
+                                                <i>Zhaohui Wu, Zhejiang University, China</i>
+                                            </li>
 
+                                        </ul>
+
+                                        <div style="height: 30px; clear: both;"></div>
+
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                    </div><!-- end outter container  -->
+                    <!-- right panel begins -->
+                    <div>
+                        {% include sidebar.html %}
                     </div>
                 </div>
-                </div><!-- end outter container  -->
-                <!-- right panel begins -->
-                {% include sidebar.html %}
+            </div>
+        </div>
+        <!--=== End Content ===-->
+
+
+        <!--=== Footer ===-->
+        {% include footer.html %}
+        <!--=== End Footer ===-->
     </div>
-</div>
-<!--=== End Content ===-->
 
-
-<!--=== Footer ===-->
-{% include footer.html %}
-<!--=== End Footer ===-->
-</div>
-
-<!--=== Scripts ===-->
-{% include scripts.html %}
-<!--=== End scripts ===-->
+    <!--=== Scripts ===-->
+    {% include scripts.html %}
+    <!--=== End scripts ===-->
 
 </body>
+
 </html>
