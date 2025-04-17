@@ -1,8 +1,18 @@
-<div>
+<div style="position: relative;">
     <script type="text/javascript">
         //Get Banner image by random
         var n = Math.floor(Math.random()*6+1);
-        document.write('<img class="img-responsive" style="height: 500px; width: 100%; margin-left: auto; margin-right: auto;" src="{{ site.baseurl }}/assets/img/main-banners/pitt_banner_' + n + '.jpg" alt="CIC 2025">');
+        document.write('<img class="img-responsive" style="height: 600px; width: 100%; margin-left: auto; margin-right: auto;" src="{{ site.baseurl }}/assets/img/main-banners/pitt_banner_' + n + '.jpg" alt="Cogmi 2025">');
     </script>
+    
+    <!-- Dark overlay -->
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.3);"></div>
+    
+    <!-- Text content -->
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: white; width: 90%;">
+        <h1 class="animated fadeInUp" style="font-size: 64px; font-weight: bold; color: white; text-shadow: 2px 2px 4px rgb(0, 0, 0, 0.8);">IEEE CIC 2025</h1>
+        <p class="animated fadeInRight" id="sub_title" style="font-size: 30px; margin-top: 40px; text-align: center; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">The 7<sup>th</sup> IEEE International Conference on Collaboration and Internet Computing</p>
+        <p class="animated fadeInLeft" style="font-size: 30px; margin-top: 10px; text-align: center; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Nov.11-14, 2025 (TBC), Pittsburgh, USA</p>
+        <p class="animated fadeInLeft"  style="font-size: 30px; margin-top: 10px; text-align: center; color: white; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">Co-located with <a style="color: rgb(219, 190, 26);" href="https://www.sis.pitt.edu/lersais/conference/tps/2025/" target="_blank">IEEE TPS 2025</a> and <a style="color: rgb(219, 190, 26);" href="https://www.sis.pitt.edu/lersais/conference/cogmi/2025/" target="_blank">IEEE CogMI 2025</a></p>
+    </div>
 </div>
-
