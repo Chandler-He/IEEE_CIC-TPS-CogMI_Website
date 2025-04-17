@@ -28,16 +28,7 @@ title: "blank"
             <!-- End Navbar -->
         </div>
 
-        <!--=== End Header ===-->
-        <div class="breadcrumbs">
-            <div class="container">
-                <h1 class="pull-left">Organizing Commmittees</h1>
-                <ul class="pull-right breadcrumb">
-                    <li><a href="{{ site.baseurl }}/">Home</a></li>
-                    <li class="active">Organizers</li>
-                </ul>
-            </div>
-        </div>
+        
 
 
 
@@ -46,17 +37,28 @@ title: "blank"
             <div class="news-v3 margin-bottom-30">
                 {% include banner.html %}
             </div>
+            <!--=== End Header ===-->
+            <div class="breadcrumbs">
+                <div class="container">
+                    <h1 class="pull-left">Organizing Commmittees</h1>
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="{{ site.baseurl }}/">Home</a></li>
+                        <li class="active">Organizers</li>
+                    </ul>
+                </div>
+            </div>
+
+            
             <div class="container">
-                
                 <div class="row">
                     <!-- Contents goes here -->
                     <div class="col-md-9" ><!-- outter container  -->
                         <div class="news-v3-in">
                             <div class="row">
-                                <div class="col-md-3">
+                                <!-- <div class="col-md-3">
                                     <ul class="no-padding margin-left-10 organizers-type-list hidden-xs"
                                         id="sidebar-nav">
-                                        <!-- Typography -->
+                                        
 
                                         <li class=""><a href="#General">Executive Chairs of the Co-located
                                                 Conferences</a>
@@ -76,11 +78,11 @@ title: "blank"
                                         <li class=""><a href="#Workshop">Publicity Chairs</a></li>
                                         <li class=""><a href="#DemonstrationPaper">Web Co-Chairs</a></li>
                                     </ul>
-                                </div>
-                                <div class="col-md-9">
+                                </div> -->
+                                <div class="col-md-12">
                                     <div id="organizers">
 
-                                        <h2>Organizing Commmittee</h2>
+
                                         <h4 id="General">Executive Chairs of the Co-located Conferences</h4>
                                         <ul>
                                             <li class="person-card">
@@ -88,9 +90,8 @@ title: "blank"
                                                     <a target="_blank"
                                                         href="https://dawsec.dicom.uninsubria.it/elena.ferrari/">
                                                         <img
-                                                            src="{{ site.baseurl }}/assets/img/organizers/elena.jpeg">Elena
-                                                        Ferrari</a>
-                                                    University of Insubria, Italy
+                                                            src="{{ site.baseurl }}/assets/img/organizers/elena.jpeg">Elena Ferrari</a>
+                                                    <span class="affiliation">University of Insubria, Italy</span>
                                                 </div>
                                             </li>
 
@@ -100,7 +101,7 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/danda.png">Danda
                                                         Rawat</a>
-                                                    Howard University, U.S.A
+                                                    <span class="affiliation">Howard University, U.S.A</span>
                                                 </div>
                                             </li>
 
@@ -124,6 +125,9 @@ title: "blank"
                                                 </div>
                                             </li>
                                         </ul>
+
+
+
                                         <h4 id="Program">Program Co-Chairs</h4>
                                         <ul>
                                             <li class="person-card">
@@ -132,23 +136,25 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/paolo.jpg">Paolo
                                                         Boldi</a>
-                                                    University of Milano, Italy
+                                                    <span class="affiliation">University of Milano, Italy</span>
                                                 </div>
                                             </li>
-                                            <!-- <li class="person-card">
-                                    <div>
-                                        <a href="https://engineering.vanderbilt.edu/bio/?pid=dan-lin">
-                                            <img src="{{ site.baseurl }}/assets/img/organizers/danlin.jpg">Dan Lin</a>
-                                            Vanderbilt University, U.S.A
-                                    </div>
-                                </li>
-                                <li class="person-card">
-                                    <div>
-                                        <a href="https://cse.usf.edu/~attilaayavuz/">
-                                            <img src="{{ site.baseurl }}/assets/img/organizers/attila.jpg">Attila Altay Yavuz</a>
-                                            University of South Florida, U.S.A
-                                    </div>
-                                </li> -->
+                                            <li class="person-card">
+                                                <div>
+                                                    <a target="_blank" href="https://sse.umkc.edu/profiles/shyu-mei-ling.html">
+                                                        <img
+                                                            src="{{ site.baseurl }}/assets/img/organizers/mei-lin.jpg">Mei-Ling Shyu</a>
+                                                    <span class="affiliation">University of Missouri-Kansas City, U.S.A</span>
+                                                </div>
+                                            </li>
+                                            <li class="person-card">
+                                                <div>
+                                                    <a target="_blank" href="https://ecs.syracuse.edu/faculty-staff/reza-zafarani">
+                                                        <img
+                                                            src="{{ site.baseurl }}/assets/img/organizers/reza.jpg">Reza Zafarani</a>
+                                                    <span class="affiliation">Syracuse University, U.S.A</span>
+                                                </div>
+                                            </li>
 
                                         </ul>
                                         <h4 id="ShortPaperProgram">Blue-Sky/ Vision Track Co-Chairs</h4>
@@ -159,19 +165,13 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/huanliu.jpg">Huan
                                                         Liu</a>
-                                                    Arizona State University, U.S.A
+                                                    <span class="affiliation">Arizona State University, U.S.A</span>
                                                 </div>
                                             </li>
-                                            <li class="person-card">
-                                                <div>TBD
-                                                    <!-- <a target="_blank" href="http://www.bigdatalab.ac.cn/~gjf/">
-                                            <img src="{{ site.baseurl }}/assets/img/organizers/Jiafeng_Guo.jpg">Jiafeng Guo</a>
-                                        Chinese Academy of Sciences, China -->
-                                                </div>
-                                            </li>
+                                            
 
                                             <li class="person-card">
-                                                <div>TBD
+                                                <div>
                                                     <!-- <a href="https://iew3.technion.ac.il/~kurland/">
                                             <img src="{{ site.baseurl }}/assets/img/organizers/Oren_Kurland.jpg">Oren Kurland</a>
                                         Israel Institute of Technology, Israel -->
@@ -220,9 +220,11 @@ title: "blank"
                                         <ul>
                                             <li class="person-card">
                                                 <div>
-                                                    <!-- <a href="https://www.microsoft.com/en-us/research/people/milads/">
-                                            <img src="{{ site.baseurl }}/assets/img/organizers/Milad_Shokouhi.jpg">Milad Shokouhi</a>
-                                        Microsoft -->
+                                                    <a target="_blank" href="https://yanzhaowu.me/">
+                                                        <img
+                                                            src="{{ site.baseurl }}/assets/img/organizers/yanzhao.jpg">
+                                                        Yanzhao Wu</a>
+                                                    <span class="affiliation">Florida International University, U.S.A.</span>
                                                 </div>
                                             </li>
                                             <li class="person-card">
@@ -250,7 +252,7 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/runhua.jpeg">Runhua
                                                         Xu</a>
-                                                    Beihang University, China
+                                                    <span class="affiliation">Beihang University, China</span>
 
                                                 </div>
                                             </li>
@@ -279,7 +281,7 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/mai.jpeg">Mai
                                                         Abdelhakim</a>
-                                                    University of Pittsburgh, U.S.A
+                                                    <span class="affiliation">University of Pittsburgh, U.S.A.</span>
                                                 </div>
                                             </li>
                                             <li class="person-card">
@@ -289,8 +291,9 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/julian.jpeg">Julian
                                                         Jarrett</a>
-                                                    University of Technology, Jamaica, & <br>
-                                                    Lutron Electronics, U.S.A
+                                                    <span class="affiliation">Lutron Electronics, U.S.A.</span><br>
+                                                    
+                                                    
                                                 </div>
                                             </li>
 
@@ -305,7 +308,7 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/runhua.jpeg">Runhua
                                                         Xu</a>
-                                                    Beihang University, China
+                                                    <span class="affiliation">Beihang University, China</span>
                                                 </div>
                                             </li>
                                             <li class="person-card">
@@ -333,7 +336,7 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/yanzhao.jpg">
                                                         Yanzhao Wu</a>
-                                                    Florida International University, U.S.A.
+                                                    <span class="affiliation">Florida International University, U.S.A.</span>
                                                 </div>
                                             </li>
                                             <li class="person-card">
@@ -353,7 +356,7 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/yanzhao.jpg">
                                                         Yanzhao Wu</a>
-                                                    Florida International University, U.S.A.
+                                                    <span class="affiliation">Florida International University, U.S.A.</span>
                                                 </div>
                                             </li>
                                             <li class="person-card">
@@ -373,7 +376,7 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/peilin.png">Peilin
                                                         He</a>
-                                                    University of Pittsbutgh, U.S.A.
+                                                    <span class="affiliation">University of Pittsburgh, U.S.A.</span>
                                                 </div>
                                             </li>
                                             <li class="person-card">
@@ -382,7 +385,7 @@ title: "blank"
                                                         <img
                                                             src="{{ site.baseurl }}/assets/img/organizers/liou.jpg">Liou
                                                         Tang</a>
-                                                    University of Pittsbutgh, U.S.A.
+                                                    <span class="affiliation">University of Pittsburgh, U.S.A.</span>
                                                 </div>
                                             </li>
                                         </ul>
