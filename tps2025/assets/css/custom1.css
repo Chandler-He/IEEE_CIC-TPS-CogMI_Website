@@ -21,7 +21,7 @@
     top: 20px;
 }
 
-#organizers {}
+
 
 #organizers h4 {
     margin: 20px 0 30px;
@@ -39,7 +39,6 @@
     border-bottom: 1px dotted #e1e2e3
 }
 
-#organizers ul li {}
 
 #organizers ul li.person-card {
     list-style: none;
@@ -69,6 +68,12 @@
     border-radius: 6px !important;
 }
 
+#organizers ul li.person-card .affiliation {
+    display: block;
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 0.5em;
+}
 
 blockquote.hero {
     border-left: solid 2px #e1e2e3;
