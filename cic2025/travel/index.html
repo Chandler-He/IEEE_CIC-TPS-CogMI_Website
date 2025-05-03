@@ -11,7 +11,7 @@ title: "Travel"
 <!--[if !IE]><!-->
 <html lang="en"> <!--<![endif]-->
 <head>
-    <title>CIC 2025 - Travel</title>
+    <title>IEEE CIC 2025 - Travel</title>
     {% include head.html %}
 </head>
 
@@ -19,52 +19,72 @@ title: "Travel"
     <div class="wrapper" style="min-height: 800px">
         <!--=== Header===-->
         <div class="header-v3">
-            <div class="container"></div>
+            <!-- <div class="container"></div> -->
             <!-- Navbar -->
             {% include navbar.html %}
             <!-- End Navbar -->
         </div>
         <!--=== End Header ===-->
-        <div class="breadcrumbs">
-            <div class="container">
-                <h1 class="pull-left">Travel</h1>
-                <ul class="pull-right breadcrumb">
-                    <li><a href="{{ site.baseurl }}/">Home</a></li>
-                    <li><a href="">Attend</a></li>
-                    <li class="active">Travel</li>
-                </ul>
-            </div>
-        </div>
-        
-    <div class="bg-color-light">
-        <div class="container content-xs">
+
+
+        <div class="bg-color-light">
             <div class="news-v3 margin-bottom-30">
                 {% include banner.html %}
-                <!-- Contents goes here -->
-                <div class="row" style="margin: 50px">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="error-v1">
-                            <h3><span>CIC 2025 will be fully held online.</span></h3><br>
-                            <a class="btn-u btn-bordered" href="{{ site.baseurl }}/">Back Home</a>
+            </div>
+            <div class="breadcrumbs">
+                <div class="container">
+                    <h1 class="pull-left">Travel</h1>
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="{{ site.baseurl }}/">Home</a></li>
+                        <li><a href="">Attend</a></li>
+                        <li class="active">Travel</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <!-- Contents goes here -->
+                    <div class="col-md-9"><!-- outter container  -->
+                        <div class="news-v3-in">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="organizers">
+
+
+                                        <h4 id="General">Hotel</h4>
+                                        <ul>
+                                            <li>
+                                                <i>Hotel information is comming soon!</i>
+                                            </li>
+                                        </ul>
+
+                                        <div style="height: 30px; clear: both;"></div>
+
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div><!-- end outter container  -->
+                    <!-- right panel begins -->
+                    <div>
+                        {% include sidebar.html %}
                     </div>
                 </div>
             </div>
         </div>
-        <!--/end container-->
+        <!--=== End Content ===-->
+
+
+        <!--=== Footer ===-->
+        {% include footer.html %}
+        <!--=== End Footer ===-->
     </div>
-</div>
-<!--=== End Content ===-->
 
-
-<!--=== Footer ===-->
-{% include footer.html %}
-<!--=== End Footer ===-->
-</div>
-
-<!--=== Scripts ===-->
-{% include scripts.html %}
-<!--=== End scripts ===-->
+    <!--=== Scripts ===-->
+    {% include scripts.html %}
+    <!--=== End scripts ===-->
 
 </body>
+
 </html>
