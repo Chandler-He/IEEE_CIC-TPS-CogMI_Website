@@ -120,7 +120,7 @@ body::before {
 
 /* 卷轴底部印章装饰 */
 .keynoteContent.show::after {
-	content: '墨宝';
+	content: 'Ink';
 	position: absolute;
 	bottom: 20px;
 	right: 30px;
@@ -1339,7 +1339,7 @@ div.keynoteContent {
 
 /* EXPANDED SCROLL STATE - 卷轴展开状态 */
 .keynoteContent.show {
-	max-height: 8000px; /* 足够大的高度容纳内容 */
+	max-height: 10000000px; /* 足够大的高度容纳内容 */
 	opacity: 1;
 	padding: 25px 30px 30px;
 	/* 添加展开完成的微妙动画 */
