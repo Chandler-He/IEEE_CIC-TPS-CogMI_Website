@@ -477,3 +477,76 @@ blockquote.hero {
     background: linear-gradient(135deg, #007bff 0%, #6610f2 100%) !important;
 }
 
+/* Mobile-specific fixes for touch devices */
+@media (max-width: 768px) {
+    /* Ensure touch targets are large enough */
+    .panel-title-elegant a,
+    .sub-panel-title a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .panel-title-elegant a:hover,
+    .sub-panel-title a:hover {
+        background: none;
+    }
+    
+    /* Add active state for better touch feedback */
+    .panel-title-elegant a:active,
+    .sub-panel-title a:active {
+        background: rgba(255,255,255,0.2) !important;
+        transform: scale(0.98);
+        transition: all 0.1s ease;
+    }
+    
+    /* Ensure panels are properly spaced on mobile */
+    .panel-elegant {
+        margin-bottom: 10px;
+    }
+    
+    .sub-panel {
+        margin-bottom: 8px;
+    }
+    
+    /* Increase padding for better touch experience */
+    .panel-body-elegant {
+        padding: 20px 15px;
+    }
+    
+    .sub-panel-body {
+        padding: 12px 15px;
+    }
+}
+
+/* iOS specific fixes */
+.ios-device .panel-title-elegant a,
+.ios-device .sub-panel-title a {
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+/* Android specific fixes */
+@media screen and (max-device-width: 768px) and (orientation: portrait),
+       screen and (max-device-width: 1024px) and (orientation: landscape) {
+    .panel-title-elegant a,
+    .sub-panel-title a {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+    
+    /* Ensure smooth scrolling */
+    .panel-body-elegant,
+    .sub-panel-body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
