@@ -4803,47 +4803,55 @@ title: "11th IEEE International Conference on Collaboration and Internet Computi
         document.addEventListener('DOMContentLoaded', function () {
             const headers = document.querySelectorAll('.keynoteHeader');
 
-            // Initially hide all keynoteContent elements
+            // Initially hide all keynoteContent elements (they start hidden via CSS)
             const contents = document.querySelectorAll('.keynoteContent');
-            contents.forEach(content => {
-                content.style.display = 'none';
+
+            // ===========================================
+            // AUTO-EXPAND CONFIGURATION FOR DEFAULT VIEW
+            // ===========================================
+            // 默认展开的年份配置 - Default expanded years configuration
+            // 每年更新时，请在这里添加新年份的ID
+            // When updating yearly, please add the new year's ID here
+            const defaultExpandedSections = [
+                '2025',  // Current year keynotes - 当前年份keynote
+                '1'      // 2024 keynotes ONLY (ID: 1) - 仅2024年keynote部分
+                // 注意：不包括2024的panels (ID: 2) 和 invited talks (ID: 3)
+                // Note: Excludes 2024 panels (ID: 2) and invited talks (ID: 3)
+            ];
+
+            // Auto-expand the configured sections - 自动展开配置的部分
+            defaultExpandedSections.forEach(sectionId => {
+                const content = document.getElementById('content' + sectionId);
+                const header = document.getElementById(sectionId);
+                
+                if (content && header) {
+                    content.classList.add('show');
+                    header.classList.add('open');
+                }
             });
 
-            // Show the first keynoteContent by default
-            const content1 = document.getElementById('content1');
-            if (content1) {
-                content1.style.display = 'block';
-                document.getElementById('1').classList.add('open');
-            }
-            const content4 = document.getElementById('content4');
-            if (content4) {
-                content4.style.display = 'block';
-                document.getElementById('1').classList.add('open');
-            }
-            const content8 = document.getElementById('content8');
-            if (content8) {
-                content8.style.display = 'block';
-                document.getElementById('1').classList.add('open');
-            }
-            const content2025 = document.getElementById('content2025');
-            if (content2025) {
-                content2025.style.display = 'block';
-                document.getElementById('2025').classList.add('open');
-            }
-
+            // ===========================================
+            // CLICK HANDLER FOR EXPAND/COLLAPSE TOGGLE
+            // ===========================================
+            // 点击事件处理器 - Click event handler
             headers.forEach(header => {
-                header.addEventListener('click', function () {
+                header.addEventListener('click', function (e) {
+                    e.preventDefault();
                     const id = this.id;
                     const content = document.getElementById('content' + id);
 
-                    // Only show the corresponding content and hide others
-                    // contents.forEach(c => c.style.display = 'none'); // Hide all content first
-                    // headers.forEach(h => h.classList.remove('open')); // Remove 'open' class from all headers
+                    if (!content) return;
 
-                    // Show the clicked content
-                    content.style.display = 'block';
-                    // Add 'open' class to clicked header and rotate its triangle
-                    this.classList.add('open');
+                    // Toggle the clicked content - 切换点击内容的显示状态
+                    if (content.classList.contains('show')) {
+                        // Hide the content - 隐藏内容
+                        content.classList.remove('show');
+                        this.classList.remove('open');
+                    } else {
+                        // Show the content - 显示内容
+                        content.classList.add('show');
+                        this.classList.add('open');
+                    }
                 });
             });
         });

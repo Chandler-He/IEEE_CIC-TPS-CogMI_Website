@@ -12,6 +12,77 @@
 @import url(plugins.css);
 @import url(app.css);
 
+/* ################################################################################
+ * KEYNOTE SECTIONS MAINTENANCE GUIDE - Keynote板块维护指南
+ * ################################################################################
+ * 
+ * 每年更新会议网站时的步骤 - Steps for yearly conference website updates:
+ * 
+ * 1. HTML结构要求 - HTML Structure Requirements:
+ *    - 使用 <h3 class="keynoteHeader" id="YEAR_ID"> 作为可点击标题
+ *      Use <h3 class="keynoteHeader" id="YEAR_ID"> as clickable header
+ *    - 使用 <div class="keynoteContent" id="contentYEAR_ID"> 作为内容容器  
+ *      Use <div class="keynoteContent" id="contentYEAR_ID"> as content container
+ *    - 标题内必须包含 <a class="triangle">&#9650;</a> 三角指示器
+ *      Header must contain <a class="triangle">&#9650;</a> triangle indicator
+ * 
+ * 2. JavaScript配置 - JavaScript Configuration:
+ *    - 在index.html底部的JavaScript中找到defaultExpandedSections数组
+ *      Find defaultExpandedSections array in JavaScript at bottom of index.html
+ *    - 添加新年份的ID到数组中，例如：'2026'
+ *      Add new year's ID to array, e.g.: '2026'
+ *    - 可以移除旧年份ID以默认折叠旧内容
+ *      Can remove old year IDs to collapse old content by default
+ * 
+ * 3. CSS样式 - CSS Styling:
+ *    - 新section会自动继承所有.keynoteHeader和.keynoteContent样式
+ *      New sections automatically inherit all .keynoteHeader and .keynoteContent styles
+ *    - 无需修改CSS，除非要改变设计风格
+ *      No CSS modifications needed unless changing design style
+ * 
+ * 4. 动画配置 - Animation Configuration:
+ *    - max-height值可能需要根据内容长度调整（当前5000px）
+ *      max-height value may need adjustment based on content length (currently 5000px)
+ *    - 在.keynoteContent.show中调整max-height
+ *      Adjust max-height in .keynoteContent.show
+ * 
+ * 5. ID命名规范 - ID Naming Convention:
+ *    - 主要年份使用年份作为ID：id="2025", id="2026"
+ *      Main years use year as ID: id="2025", id="2026"  
+ *    - 子分类使用数字ID：id="1", id="2", id="3"（通常对应前一年的不同类型）
+ *      Sub-categories use numeric IDs: id="1", id="2", id="3" (usually different types from previous year)
+ * 
+ * ################################################################################ */
+
+/* PAGE BACKGROUND FOR GLASSMORPHISM EFFECT - 页面背景支持毛玻璃效果 */
+body {
+	background: linear-gradient(135deg, 
+		#667eea 0%, 
+		#764ba2 25%, 
+		#f093fb 50%, 
+		#f5576c 75%, 
+		#4facfe 100%) !important;
+	background-size: 400% 400% !important;
+	animation: gradientShift 15s ease infinite !important;
+	min-height: 100vh !important;
+}
+
+@keyframes gradientShift {
+	0% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
+	100% { background-position: 0% 50%; }
+}
+
+/* FORCE BORDER RADIUS FOR TESTING - 强制圆角测试 */
+* [class*="keynote"] {
+	-webkit-border-radius: 16px !important;
+	-moz-border-radius: 16px !important;
+	border-radius: 16px !important;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	box-sizing: border-box !important;
+}
+
 /* 新增 links 样式 */
 .links {
     background-color: #f9f9f9;       /* 浅背景色 */
@@ -114,46 +185,503 @@ s
 }
 
 
-.keynoteHeader {
-	text-decoration: none; /* 去除下划线 */
-    background-color: #f7f7f7; /* Light grey background */
-    padding: 10px; /* Optional: to add some padding for better visual appearance */
+/* ============================================================================
+ * KEYNOTE SECTIONS EXPANDABLE/COLLAPSIBLE STYLING
+ * ============================================================================
+ * 
+ * 这部分CSS用于控制Keynote Speaker sections的展开/折叠功能
+ * This CSS controls the expand/collapse functionality for Keynote Speaker sections
+ * 
+ * 每年更新指南 - Yearly Update Guide:
+ * 1. 新年份的keynote sections会自动继承这些样式
+ *    New year's keynote sections will automatically inherit these styles
+ * 2. 只需要在JavaScript中更新defaultExpandedSections数组
+ *    Only need to update the defaultExpandedSections array in JavaScript
+ * 3. 确保新的section使用相同的HTML结构和CSS类名
+ *    Ensure new sections use the same HTML structure and CSS class names
+ * 
+ * ============================================================================
+ */
+
+/* KEYNOTE HEADER STYLING - 标题样式 */
+h3.keynoteHeader {
+	text-decoration: none !important;
+	/* 毛玻璃背景效果 - Frosted glass background effect */
+	background: rgba(255, 255, 255, 0.25) !important;
+	backdrop-filter: blur(10px) !important;
+	-webkit-backdrop-filter: blur(10px) !important; /* Safari兼容性 */
+	border: 1px solid rgba(255, 255, 255, 0.18) !important;
+	border-radius: 16px !important; /* 更大的圆角 */
+	padding: 18px 24px !important;
+	margin: 20px 0 !important;
+	/* 多层阴影效果创造深度感 */
+	box-shadow: 
+		0 8px 32px rgba(31, 38, 135, 0.37),
+		0 4px 16px rgba(0, 0, 0, 0.08),
+		inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+	transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important; /* 更流畅的动画 */
+	cursor: pointer !important;
+	display: block !important;
+	position: relative !important;
+	overflow: hidden !important;
 }
-.keynoteHeader:hover,
-.keynoteHeader:focus {
-	text-decoration: none;
+
+/* HOVER AND FOCUS STATES - 悬停和焦点状态 */
+h3.keynoteHeader:hover,
+h3.keynoteHeader:focus {
+	text-decoration: none !important;
+	/* 悬停时增强毛玻璃效果 */
+	background: rgba(255, 255, 255, 0.35) !important;
+	backdrop-filter: blur(15px) !important;
+	-webkit-backdrop-filter: blur(15px) !important;
+	border: 1px solid rgba(255, 255, 255, 0.3) !important;
+	/* 悬停时更强的阴影效果 */
+	box-shadow: 
+		0 12px 40px rgba(31, 38, 135, 0.5),
+		0 8px 24px rgba(0, 0, 0, 0.12),
+		inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+	transform: translateY(-3px) scale(1.02) !important; /* 悬停时上移并轻微放大 */
 }
+
+/* KEYNOTE HEADER TEXT STYLING - 标题文字样式 */
 .keynoteHeaderText {
 	display: inline;
-	font-family: inherit; /* Inherit the font-family from the parent or default styling */
-	font-size: 22px;   /* Inherit the font size from the parent or default styling */
-	/* font-weight: bold; */
-	color: inherit;       /* Use the same text color as <h3> */
-	text-decoration: none; /* Remove underline by default */
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 现代字体 */
+	font-size: 20px;
+	font-weight: 600; /* 半粗体 */
+	color: #2c3e50; /* 深蓝灰色 */
+	text-decoration: none;
+	margin-left: 10px;
 }
+
 .keynoteHeaderText:hover,
 .keynoteHeaderText:focus {
 	text-decoration: none;
+	color: #34495e; /* 悬停时颜色变化 */
 }
 
+/* TRIANGLE INDICATOR - 三角指示器 */
 .triangle {
 	display: inline-block;
-	font-family: inherit; /* Inherit the font-family from the parent or default styling */
-	font-size: 18px;   /* Inherit the font size from the parent or default styling */
-	color: inherit;       /* Use the same text color as <h3> */
-	text-decoration: none; /* Remove underline by default */
-	transform: rotate(90deg);
-	transform-origin: center center; /* Ensure the triangle rotates around its center */
-	transition: transform 0.03s ease;
+	font-family: inherit;
+	font-size: 16px;
+	color: #6c757d; /* 默认灰色 */
+	text-decoration: none;
+	transform: rotate(90deg); /* 默认向右的箭头（折叠状态） */
+	transform-origin: center center; /* 旋转中心点 */
+	transition: all 0.3s ease; /* 旋转动画 */
+	margin-right: 8px;
+	font-weight: bold;
 }
+
 .triangle:hover,
 .triangle:focus {
 	text-decoration: none;
+	color: #495057; /* 悬停时颜色变化 */
 }
 
+/* EXPANDED STATE - 展开状态样式 */
 .keynoteHeader.open .triangle {
-	transform: rotate(180deg);
+	transform: rotate(180deg); /* 展开时向下的箭头 */
+	color: #007bff; /* 展开时蓝色强调 */
 }
+/* ============================================================================
+ * KEYNOTE CONTENT AREA STYLING - 内容区域样式
+ * ============================================================================ */
+
+/* CONTENT CONTAINER - 内容容器基础样式 */
+div.keynoteContent {
+	/* 毛玻璃背景效果 - Frosted glass background effect */
+	background: rgba(255, 255, 255, 0.15) !important;
+	backdrop-filter: blur(8px) !important;
+	-webkit-backdrop-filter: blur(8px) !important; /* Safari兼容性 */
+	border: 1px solid rgba(255, 255, 255, 0.12) !important;
+	border-top: none !important; /* 与标题无缝连接，移除顶部边框 */
+	border-radius: 0 0 16px 16px !important; /* 底部圆角与标题匹配 */
+	margin-top: -20px !important; /* 与标题重叠，创造连续效果 */
+	/* 柔和的多层阴影 */
+	box-shadow: 
+		0 6px 28px rgba(31, 38, 135, 0.25),
+		0 3px 12px rgba(0, 0, 0, 0.06),
+		inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+	position: relative !important;
+}
+
+/* PARAGRAPH STYLING - 段落样式 */
+.keynoteContent p {
+	font-size: 16px; /* 标准文字大小 */
+	line-height: 1.6; /* 行间距 */
+	margin-bottom: 15px; /* 段落间距 */
+	color: #495057; /* 中性灰色文字 */
+}
+
+/* FIRST PARAGRAPH (TITLE) - 第一段落（标题）特殊样式 */
+.keynoteContent p:first-child {
+	font-weight: 600; /* 半粗体强调 */
+	color: #2c3e50; /* 深色强调 */
+	font-size: 18px; /* 较大字体 */
+}
+
+/* SEPARATOR LINE STYLING - 分隔线样式 */
+.keynoteContent hr {
+	border: 0; /* 移除默认边框 */
+	height: 2px; /* 线条高度 */
+	background: linear-gradient(90deg, #007bff, #6c757d, #007bff); /* 渐变色分隔线 */
+	margin: 20px 0; /* 上下间距 */
+	border-radius: 1px; /* 轻微圆角 */
+}
+
+/* ============================================================================
+ * PANEL COMPONENTS STYLING - 面板组件样式
+ * ============================================================================
+ * 用于显示单个speaker或talk信息的卡片式面板
+ * Card-style panels for displaying individual speaker or talk information
+ * ============================================================================ */
+
+/* PANEL CONTAINER - 面板容器 */
+.keynoteContent .panel {
+	/* 嵌套毛玻璃效果 - Nested frosted glass effect */
+	background: rgba(255, 255, 255, 0.3);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	border: 1px solid rgba(255, 255, 255, 0.2); /* 边框 */
+	border-radius: 12px; /* 更大圆角 */
+	margin-bottom: 16px; /* 面板间距 */
+	/* 精细的阴影效果 */
+	box-shadow: 
+		0 4px 20px rgba(31, 38, 135, 0.15),
+		0 2px 8px rgba(0, 0, 0, 0.05),
+		inset 0 1px 0 rgba(255, 255, 255, 0.4);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 悬停动画 */
+	overflow: hidden;
+}
+
+/* PANEL HOVER STATE - 面板悬停状态 */
+.keynoteContent .panel:hover {
+	/* 悬停时增强毛玻璃效果 */
+	background: rgba(255, 255, 255, 0.4);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	/* 悬停时更强的阴影和轻微缩放 */
+	box-shadow: 
+		0 6px 28px rgba(31, 38, 135, 0.25),
+		0 4px 14px rgba(0, 0, 0, 0.08),
+		inset 0 1px 0 rgba(255, 255, 255, 0.5);
+	transform: translateY(-2px) scale(1.01);
+}
+
+/* PANEL HEADING - 面板标题栏 */
+.keynoteContent .panel-heading {
+	/* 面板标题的毛玻璃效果 */
+	background: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* 底部边框 */
+	border-radius: 12px 12px 0 0; /* 只有顶部圆角，匹配父容器 */
+	padding: 14px 18px; /* 内边距 */
+	position: relative;
+}
+
+/* PANEL TITLE STYLING - 面板标题样式 */
+.keynoteContent .panel-title {
+	font-size: 16px; /* 标题字体大小 */
+	font-weight: 600; /* 半粗体 */
+	margin: 0; /* 移除默认边距 */
+}
+
+/* PANEL TITLE LINKS - 面板标题链接 */
+.keynoteContent .panel-title a {
+	color: #2c3e50; /* 深蓝灰色 */
+	text-decoration: none; /* 移除下划线 */
+	display: block; /* 块级显示 */
+}
+
+.keynoteContent .panel-title a:hover {
+	color: #007bff; /* 悬停时蓝色 */
+	text-decoration: none; /* 保持无下划线 */
+}
+
+/* Media Object Styling */
+.keynoteContent .media {
+	padding: 20px 15px;
+	border-radius: 0 0 6px 6px;
+}
+
+.keynoteContent .media-object {
+	border-radius: 50%;
+	/* 头像的毛玻璃边框效果 */
+	border: 3px solid rgba(255, 255, 255, 0.4);
+	box-shadow: 
+		0 4px 16px rgba(31, 38, 135, 0.2),
+		0 2px 8px rgba(0, 0, 0, 0.08),
+		inset 0 1px 2px rgba(255, 255, 255, 0.3);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	backdrop-filter: blur(2px);
+	-webkit-backdrop-filter: blur(2px);
+}
+
+.keynoteContent .media-object:hover {
+	transform: scale(1.08) rotate(2deg);
+	border: 3px solid rgba(255, 255, 255, 0.6);
+	box-shadow: 
+		0 6px 24px rgba(31, 38, 135, 0.3),
+		0 4px 12px rgba(0, 0, 0, 0.12),
+		inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.keynoteContent .media-left {
+	padding-right: 15px;
+}
+
+.keynoteContent .media-body p {
+	margin-bottom: 8px;
+}
+
+.keynoteContent .media-body p:first-child a {
+	color: #007bff;
+	font-weight: 600;
+	text-decoration: none;
+	font-size: 18px;
+}
+
+.keynoteContent .media-body p:first-child a:hover {
+	color: #0056b3;
+	text-decoration: underline;
+}
+
+.keynoteContent .media-body p em {
+	color: #6c757d;
+	font-style: italic;
+}
+
+/* ============================================================================
+ * RESPONSIVE DESIGN FOR KEYNOTE SECTIONS - 响应式设计
+ * ============================================================================ */
+
+/* TABLET BREAKPOINT - 平板设备断点 */
+@media (max-width: 768px) {
+	h3.keynoteHeader {
+		padding: 15px 18px; /* 保持舒适的内边距 */
+		margin: 16px 0;
+		border-radius: 14px; /* 稍小的圆角 */
+		/* 减少毛玻璃强度以提升性能 */
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+	}
+	
+	.keynoteHeaderText {
+		font-size: 18px;
+		margin-left: 8px;
+	}
+	
+	.keynoteContent.show {
+		padding: 16px;
+		max-height: 6000px;
+		border-radius: 0 0 14px 14px; /* 匹配标题圆角 */
+		margin-top: -18px;
+	}
+	
+	.keynoteContent .panel {
+		border-radius: 10px; /* 稍小的圆角 */
+		margin-bottom: 12px;
+		/* 减少模糊强度 */
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+	}
+	
+	.keynoteContent .media {
+		padding: 15px 10px;
+		flex-direction: column;
+		text-align: center;
+	}
+	
+	.keynoteContent .media-left {
+		padding-right: 0;
+		padding-bottom: 15px;
+		align-self: center;
+	}
+	
+	.keynoteContent .media-object {
+		width: 80px;
+		height: 80px;
+	}
+	
+	.keynoteContent .panel-heading {
+		padding: 10px 12px;
+	}
+	
+	.keynoteContent .panel-title {
+		font-size: 15px;
+	}
+}
+
+/* MOBILE BREAKPOINT - 移动设备断点 */
+@media (max-width: 480px) {
+	h3.keynoteHeader {
+		padding: 12px 16px;
+		border-radius: 12px; /* 移动端较小圆角 */
+		margin: 12px 0;
+		/* 进一步减少毛玻璃效果以优化性能 */
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+		/* 简化阴影效果 */
+		box-shadow: 
+			0 4px 16px rgba(31, 38, 135, 0.25),
+			0 2px 8px rgba(0, 0, 0, 0.06);
+	}
+	
+	.keynoteHeaderText {
+		font-size: 16px;
+		display: block;
+		margin-left: 0;
+		margin-top: 6px;
+	}
+	
+	.triangle {
+		font-size: 14px;
+		margin-right: 6px;
+	}
+	
+	.keynoteContent.show {
+		border-radius: 0 0 12px 12px;
+		margin-top: -14px;
+		padding: 14px;
+		/* 移动端减少模糊效果 */
+		backdrop-filter: blur(4px);
+		-webkit-backdrop-filter: blur(4px);
+	}
+	
+	.keynoteContent .panel {
+		border-radius: 8px; /* 移动端最小圆角 */
+		/* 最小的模糊效果 */
+		backdrop-filter: blur(2px);
+		-webkit-backdrop-filter: blur(2px);
+		/* 简化阴影 */
+		box-shadow: 
+			0 2px 12px rgba(31, 38, 135, 0.1),
+			0 1px 4px rgba(0, 0, 0, 0.04);
+	}
+	
+	.keynoteContent .media-body p:first-child a {
+		font-size: 16px;
+	}
+	
+	.keynoteContent .media-object {
+		/* 移动端头像优化 */
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		box-shadow: 
+			0 2px 8px rgba(31, 38, 135, 0.15),
+			0 1px 4px rgba(0, 0, 0, 0.06);
+	}
+}
+
+/* ============================================================================
+ * BROWSER COMPATIBILITY FALLBACKS - 浏览器兼容性后备方案
+ * ============================================================================ */
+
+/* Fallback for browsers that don't support backdrop-filter */
+/* 不支持backdrop-filter的浏览器的后备方案 */
+@supports not (backdrop-filter: blur(10px)) {
+	.keynoteHeader {
+		background: rgba(248, 249, 250, 0.9); /* 更不透明的背景 */
+		border: 1px solid rgba(222, 226, 230, 0.8);
+	}
+	
+	.keynoteContent {
+		background: rgba(255, 255, 255, 0.95);
+		border: 1px solid rgba(233, 236, 239, 0.8);
+	}
+	
+	.keynoteContent .panel {
+		background: rgba(255, 255, 255, 0.9);
+		border: 1px solid rgba(255, 255, 255, 0.6);
+	}
+	
+	.keynoteContent .panel-heading {
+		background: rgba(248, 249, 250, 0.8);
+	}
+}
+
+/* Print styles optimization - 打印样式优化 */
+@media print {
+	.keynoteHeader,
+	.keynoteContent,
+	.keynoteContent .panel {
+		background: #ffffff !important;
+		backdrop-filter: none !important;
+		-webkit-backdrop-filter: none !important;
+		box-shadow: none !important;
+		border: 1px solid #000000 !important;
+	}
+}
+
+/* ============================================================================
+ * EXPAND/COLLAPSE ANIMATION SYSTEM - 展开/折叠动画系统
+ * ============================================================================
+ * 
+ * 重要说明 - IMPORTANT NOTES:
+ * 1. 默认状态：所有内容折叠（max-height: 0, opacity: 0）
+ *    Default state: All content collapsed (max-height: 0, opacity: 0)
+ * 
+ * 2. 展开状态：添加.show类触发展开动画
+ *    Expanded state: Add .show class to trigger expand animation
+ * 
+ * 3. max-height值可能需要根据内容调整（当前5000px适用于大部分内容）
+ *    max-height value may need adjustment based on content (current 5000px works for most content)
+ * 
+ * 4. 动画持续时间：0.4秒，可根据需要调整
+ *    Animation duration: 0.4s, adjustable as needed
+ * 
+ * ============================================================================ */
+
+/* DEFAULT COLLAPSED STATE - 默认折叠状态 */
+.keynoteContent {
+	overflow: hidden; /* 隐藏溢出内容 */
+	transition: all 0.4s ease-in-out; /* 平滑过渡动画 */
+	max-height: 0; /* 折叠时高度为0 */
+	opacity: 0; /* 折叠时透明 */
+	padding-top: 0; /* 折叠时无上内边距 */
+	padding-bottom: 0; /* 折叠时无下内边距 */
+}
+
+/* EXPANDED STATE - 展开状态 */
+.keynoteContent.show {
+	max-height: 5000px; /* 展开时最大高度（根据内容调整） */
+	opacity: 1; /* 展开时完全不透明 */
+	padding: 20px; /* 展开时恢复内边距 */
+}
+
+/* Accessibility Improvements */
+.keynoteHeader:focus {
+	outline: 2px solid #007bff;
+	outline-offset: 2px;
+}
+
+.keynoteContent .panel-title a:focus {
+	outline: 2px solid #007bff;
+	outline-offset: 2px;
+	border-radius: 3px;
+}
+
+/* Print Styles */
+@media print {
+	.keynoteHeader,
+	.keynoteContent {
+		box-shadow: none !important;
+		border: 1px solid #000 !important;
+	}
+	
+	.triangle {
+		display: none !important;
+	}
+	
+	.keynoteContent {
+		max-height: none !important;
+		opacity: 1 !important;
+	}
+}
+
 /* =========end============= */
 
 
