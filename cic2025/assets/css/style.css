@@ -1339,7 +1339,7 @@ div.keynoteContent {
 
 /* EXPANDED SCROLL STATE - 卷轴展开状态 */
 .keynoteContent.show {
-	max-height: 8000px; /* 足够大的高度容纳内容 */
+	max-height: 100000000px; /* 足够大的高度容纳内容 */
 	opacity: 1;
 	padding: 25px 30px 30px;
 	/* 添加展开完成的微妙动画 */
