@@ -48,12 +48,13 @@ exclude:
   - notebooks/*
 
 # url: cic2025.github.io
-# baseurl: /cogmi2025
-# baseurl1: /cogmi2025
+baseurl: /cogmi2025
+baseurl1: /cogmi2025
+# baseurl: ..
+# baseurl1: .
 # CSS version for cache busting
-css_version: "20250807001"
-baseurl: ..
-baseurl1: .
+css_version: "20250807142713"
+
 # bundle exec jekyll serve 
 # Exclude from processing.
 # The following items will not be processed, by default.
