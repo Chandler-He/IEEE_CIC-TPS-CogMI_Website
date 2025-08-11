@@ -51,7 +51,7 @@ exclude:
 baseurl: /tps2025
 baseurl1: /tps2025
 # CSS version for cache busting
-css_version: "20250807154542"
+css_version: "20250811105820"
 # baseurl: ..
 # baseurl1: .
 # bundle exec jekyll serve 
