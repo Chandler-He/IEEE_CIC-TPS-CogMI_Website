@@ -52,7 +52,7 @@ exclude:
 baseurl: /cic2025
 baseurl1: /cic2025
 # CSS version for cache busting
-css_version: "20250807154803"
+css_version: "20250811110953"
 # baseurl: ..
 # baseurl1: .
 
