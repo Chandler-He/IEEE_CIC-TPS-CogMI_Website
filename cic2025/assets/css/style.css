@@ -12,147 +12,6 @@
 @import url(plugins.css);
 @import url(app.css);
 
-/* ################################################################################
- * KEYNOTE SECTIONS MAINTENANCE GUIDE - Keynote板块维护指南
- * ################################################################################
- * 
- * 每年更新会议网站时的步骤 - Steps for yearly conference website updates:
- * 
- * 1. HTML结构要求 - HTML Structure Requirements:
- *    - 使用 <h3 class="keynoteHeader" id="YEAR_ID"> 作为可点击标题
- *      Use <h3 class="keynoteHeader" id="YEAR_ID"> as clickable header
- *    - 使用 <div class="keynoteContent" id="contentYEAR_ID"> 作为内容容器  
- *      Use <div class="keynoteContent" id="contentYEAR_ID"> as content container
- *    - 标题内必须包含 <a class="triangle">&#9650;</a> 三角指示器
- *      Header must contain <a class="triangle">&#9650;</a> triangle indicator
- * 
- * 2. JavaScript配置 - JavaScript Configuration:
- *    - 在index.html底部的JavaScript中找到defaultExpandedSections数组
- *      Find defaultExpandedSections array in JavaScript at bottom of index.html
- *    - 添加新年份的ID到数组中，例如：'2026'
- *      Add new year's ID to array, e.g.: '2026'
- *    - 可以移除旧年份ID以默认折叠旧内容
- *      Can remove old year IDs to collapse old content by default
- * 
- * 3. CSS样式 - CSS Styling:
- *    - 新section会自动继承所有.keynoteHeader和.keynoteContent样式
- *      New sections automatically inherit all .keynoteHeader and .keynoteContent styles
- *    - 无需修改CSS，除非要改变设计风格
- *      No CSS modifications needed unless changing design style
- * 
- * 4. 动画配置 - Animation Configuration:
- *    - max-height值可能需要根据内容长度调整（当前5000px）
- *      max-height value may need adjustment based on content length (currently 5000px)
- *    - 在.keynoteContent.show中调整max-height
- *      Adjust max-height in .keynoteContent.show
- * 
- * 5. ID命名规范 - ID Naming Convention:
- *    - 主要年份使用年份作为ID：id="2025", id="2026"
- *      Main years use year as ID: id="2025", id="2026"  
- *    - 子分类使用数字ID：id="1", id="2", id="3"（通常对应前一年的不同类型）
- *      Sub-categories use numeric IDs: id="1", id="2", id="3" (usually different types from previous year)
- * 
- * ################################################################################ */
-
-/* ============================================================================
- * CLASSICAL CHINESE SCROLL DESIGN - 中国古典卷轴设计
- * ============================================================================ */
-
-/* ANCIENT PAPER BACKGROUND - 古纸背景 */
-body {
-	background: linear-gradient(135deg, #f7f3e9 0%, #f0ead6 100%);
-	background-image: 
-		/* 纸张纹理 */
-		radial-gradient(circle at 20% 30%, rgba(139, 69, 19, 0.03) 0%, transparent 50%),
-		radial-gradient(circle at 80% 70%, rgba(160, 82, 45, 0.02) 0%, transparent 50%),
-		radial-gradient(circle at 40% 80%, rgba(101, 67, 33, 0.01) 0%, transparent 50%);
-	min-height: 100vh;
-	font-family: 'Noto Serif SC', 'STSong', 'Microsoft YaHei', serif;
-	position: relative;
-}
-
-/* 古纸纹理覆盖层 */
-body::before {
-	content: '';
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background-image: 
-		linear-gradient(45deg, transparent 40%, rgba(139, 69, 19, 0.005) 50%, transparent 60%),
-		linear-gradient(-45deg, transparent 40%, rgba(160, 82, 45, 0.005) 50%, transparent 60%);
-	pointer-events: none;
-	z-index: -1;
-}
-
-/* ============================================================================
- * CHINESE DECORATIVE ELEMENTS - 中国风装饰元素
- * ============================================================================ */
-
-/* 页面顶部装饰性印章 */
-/* body::after {
-	content: '学术会议';
-	position: fixed;
-	top: 20px;
-	right: 20px;
-	width: 60px;
-	height: 60px;
-	background: radial-gradient(circle, #DC143C 0%, #B22222 70%);
-	color: #FFF8DC;
-	font-family: 'Noto Serif SC', serif;
-	font-size: 12px;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	border-radius: 50%;
-	border: 2px solid #8B0000;
-	box-shadow: 
-		0 4px 12px rgba(220, 20, 60, 0.3),
-		inset 0 2px 4px rgba(255, 255, 255, 0.2);
-	z-index: 1000;
-	transform: rotate(-15deg);
-	letter-spacing: 0.5px;
-	opacity: 0.9;
-} */
-
-/* 卷轴底部印章装饰 */
-.keynoteContent.show::after {
-	content: '墨宝';
-	position: absolute;
-	bottom: 20px;
-	right: 30px;
-	width: 40px;
-	height: 40px;
-	background: radial-gradient(circle, #8B4513 0%, #654321 70%);
-	color: #FFF8DC;
-	font-family: 'Noto Serif SC', serif;
-	font-size: 10px;
-	font-weight: 700;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 2px;
-	border: 1px solid #A0522D;
-	transform: rotate(5deg);
-	opacity: 0.7;
-	animation: sealAppear 1s ease-out 1.5s forwards;
-	opacity: 0;
-}
-
-@keyframes sealAppear {
-	0% {
-		opacity: 0;
-		transform: rotate(5deg) scale(0.8);
-	}
-	100% {
-		opacity: 0.7;
-		transform: rotate(5deg) scale(1);
-	}
-}
-
 /* 新增 links 样式 */
 .links {
     background-color: #f9f9f9;       /* 浅背景色 */
@@ -255,1167 +114,633 @@ s
 }
 
 
-/* ============================================================================
- * KEYNOTE SECTIONS EXPANDABLE/COLLAPSIBLE STYLING
- * ============================================================================
- * 
- * 这部分CSS用于控制Keynote Speaker sections的展开/折叠功能
- * This CSS controls the expand/collapse functionality for Keynote Speaker sections
- * 
- * 每年更新指南 - Yearly Update Guide:
- * 1. 新年份的keynote sections会自动继承这些样式
- *    New year's keynote sections will automatically inherit these styles
- * 2. 只需要在JavaScript中更新defaultExpandedSections数组
- *    Only need to update the defaultExpandedSections array in JavaScript
- * 3. 确保新的section使用相同的HTML结构和CSS类名
- *    Ensure new sections use the same HTML structure and CSS class names
- * 
- * ============================================================================
- */
+/* =====================================================
+   科技感液态玻璃风格 (Tech Liquid Glass Effect)
+   -----------------------------------------------------
+   结合 iOS 16 玻璃效果与科技感圆角矩形设计
+   
+   核心特性：
+   1. 科技感圆角矩形边框 (24px/20px 圆角 - 明显的圆角效果)
+   2. 浅色渐变边框 - 非常淡的蓝色科技色
+   3. 清晰的毛玻璃模糊效果
+   4. 强烈的光影和高光反射
+   5. 分层的深度视觉效果
+   6. 细微的科技感动画效果
+   
+   视觉效果：
+   - 现代科技感的圆角矩形外观
+   - 浅色渐变边框增强科技感
+   - 清晰可见的玻璃材质感
+   - 明显的深度和层次感
+   - 轻微的呼吸和边框脉动动画
+   - 流畅的交互反馈
+   ===================================================== */
 
-/* ============================================================================
- * SCROLL HEADER DESIGN - 卷轴标题设计
- * ============================================================================ */
-
-/* 卷轴木轴旋转动画关键帧 - 模拟真实圆筒旋转 */
-@keyframes woodCylinderRotation {
-	0% {
-		background: 
-			linear-gradient(90deg, 
-				#2F1B14 0%, #4A3429 3%, #654321 8%, #7A3F12 15%, #8B4513 25%,
-				#A0522D 35%, #B8860B 45%, #D2691E 55%, #E6A857 65%, #F4A460 75%,
-				#FFE4B5 82%, #F4A460 85%, #D2691E 90%, #A0522D 95%, #8B4513 97%,
-				#654321 99%, #2F1B14 100%),
-			linear-gradient(180deg, rgba(255, 248, 220, 0.95) 0%, rgba(255, 248, 220, 0.7) 2%, rgba(244, 164, 96, 0.4) 4%, transparent 8%),
-			linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 27, 20, 0.6) 2%, rgba(101, 67, 33, 0.4) 4%, transparent 8%),
-			repeating-linear-gradient(90deg, rgba(139, 69, 19, 0.3) 0px, rgba(139, 69, 19, 0.3) 0.2px, transparent 0.2px, transparent 1.8px, rgba(101, 67, 33, 0.25) 1.8px, rgba(101, 67, 33, 0.25) 2px, transparent 2px, transparent 4px, rgba(160, 82, 45, 0.2) 4px, rgba(160, 82, 45, 0.2) 4.2px, transparent 4.2px, transparent 6px),
-			repeating-linear-gradient(88deg, rgba(210, 105, 30, 0.08) 0px, transparent 0.5px, transparent 8px, rgba(139, 69, 19, 0.06) 8.5px, transparent 9px, transparent 16px);
-	}
-	25% {
-		background: 
-			linear-gradient(90deg, 
-				#FFE4B5 0%, #F4A460 3%, #E6A857 8%, #D2691E 15%, #B8860B 25%,
-				#A0522D 35%, #8B4513 45%, #7A3F12 55%, #654321 65%, #4A3429 75%,
-				#2F1B14 82%, #4A3429 85%, #654321 90%, #8B4513 95%, #A0522D 97%,
-				#D2691E 99%, #FFE4B5 100%),
-			linear-gradient(180deg, rgba(255, 248, 220, 0.95) 0%, rgba(255, 248, 220, 0.7) 2%, rgba(244, 164, 96, 0.4) 4%, transparent 8%),
-			linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 27, 20, 0.6) 2%, rgba(101, 67, 33, 0.4) 4%, transparent 8%),
-			repeating-linear-gradient(90deg, rgba(139, 69, 19, 0.3) 0px, rgba(139, 69, 19, 0.3) 0.2px, transparent 0.2px, transparent 1.8px, rgba(101, 67, 33, 0.25) 1.8px, rgba(101, 67, 33, 0.25) 2px, transparent 2px, transparent 4px, rgba(160, 82, 45, 0.2) 4px, rgba(160, 82, 45, 0.2) 4.2px, transparent 4.2px, transparent 6px),
-			repeating-linear-gradient(88deg, rgba(210, 105, 30, 0.08) 0px, transparent 0.5px, transparent 8px, rgba(139, 69, 19, 0.06) 8.5px, transparent 9px, transparent 16px);
-	}
-	50% {
-		background: 
-			linear-gradient(90deg, 
-				#D2691E 0%, #F4A460 3%, #FFE4B5 8%, #F4A460 15%, #E6A857 25%,
-				#D2691E 35%, #B8860B 45%, #A0522D 55%, #8B4513 65%, #7A3F12 75%,
-				#654321 82%, #4A3429 85%, #2F1B14 90%, #4A3429 95%, #654321 97%,
-				#8B4513 99%, #A0522D 100%),
-			linear-gradient(180deg, rgba(255, 248, 220, 0.95) 0%, rgba(255, 248, 220, 0.7) 2%, rgba(244, 164, 96, 0.4) 4%, transparent 8%),
-			linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 27, 20, 0.6) 2%, rgba(101, 67, 33, 0.4) 4%, transparent 8%),
-			repeating-linear-gradient(90deg, rgba(139, 69, 19, 0.3) 0px, rgba(139, 69, 19, 0.3) 0.2px, transparent 0.2px, transparent 1.8px, rgba(101, 67, 33, 0.25) 1.8px, rgba(101, 67, 33, 0.25) 2px, transparent 2px, transparent 4px, rgba(160, 82, 45, 0.2) 4px, rgba(160, 82, 45, 0.2) 4.2px, transparent 4.2px, transparent 6px),
-			repeating-linear-gradient(88deg, rgba(210, 105, 30, 0.08) 0px, transparent 0.5px, transparent 8px, rgba(139, 69, 19, 0.06) 8.5px, transparent 9px, transparent 16px);
-	}
-	75% {
-		background: 
-			linear-gradient(90deg, 
-				#A0522D 0%, #B8860B 3%, #D2691E 8%, #E6A857 15%, #F4A460 25%,
-				#FFE4B5 35%, #F4A460 45%, #E6A857 55%, #D2691E 65%, #B8860B 75%,
-				#A0522D 82%, #8B4513 85%, #7A3F12 90%, #654321 95%, #4A3429 97%,
-				#2F1B14 99%, #4A3429 100%),
-			linear-gradient(180deg, rgba(255, 248, 220, 0.95) 0%, rgba(255, 248, 220, 0.7) 2%, rgba(244, 164, 96, 0.4) 4%, transparent 8%),
-			linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 27, 20, 0.6) 2%, rgba(101, 67, 33, 0.4) 4%, transparent 8%),
-			repeating-linear-gradient(90deg, rgba(139, 69, 19, 0.3) 0px, rgba(139, 69, 19, 0.3) 0.2px, transparent 0.2px, transparent 1.8px, rgba(101, 67, 33, 0.25) 1.8px, rgba(101, 67, 33, 0.25) 2px, transparent 2px, transparent 4px, rgba(160, 82, 45, 0.2) 4px, rgba(160, 82, 45, 0.2) 4.2px, transparent 4.2px, transparent 6px),
-			repeating-linear-gradient(88deg, rgba(210, 105, 30, 0.08) 0px, transparent 0.5px, transparent 8px, rgba(139, 69, 19, 0.06) 8.5px, transparent 9px, transparent 16px);
-	}
-	100% {
-		background: 
-			linear-gradient(90deg, 
-				#2F1B14 0%, #4A3429 3%, #654321 8%, #7A3F12 15%, #8B4513 25%,
-				#A0522D 35%, #B8860B 45%, #D2691E 55%, #E6A857 65%, #F4A460 75%,
-				#FFE4B5 82%, #F4A460 85%, #D2691E 90%, #A0522D 95%, #8B4513 97%,
-				#654321 99%, #2F1B14 100%),
-			linear-gradient(180deg, rgba(255, 248, 220, 0.95) 0%, rgba(255, 248, 220, 0.7) 2%, rgba(244, 164, 96, 0.4) 4%, transparent 8%),
-			linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(47, 27, 20, 0.6) 2%, rgba(101, 67, 33, 0.4) 4%, transparent 8%),
-			repeating-linear-gradient(90deg, rgba(139, 69, 19, 0.3) 0px, rgba(139, 69, 19, 0.3) 0.2px, transparent 0.2px, transparent 1.8px, rgba(101, 67, 33, 0.25) 1.8px, rgba(101, 67, 33, 0.25) 2px, transparent 2px, transparent 4px, rgba(160, 82, 45, 0.2) 4px, rgba(160, 82, 45, 0.2) 4.2px, transparent 4.2px, transparent 6px),
-			repeating-linear-gradient(88deg, rgba(210, 105, 30, 0.08) 0px, transparent 0.5px, transparent 8px, rgba(139, 69, 19, 0.06) 8.5px, transparent 9px, transparent 16px);
-	}
-}
-
-/* 端盖旋转动画关键帧 - 模拟木轴端盖一起转动 */
-@keyframes endCapRotation {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
-}
-
-/* 点击时的快速旋转脉冲 - 模拟卷轴被用力转动 */
-@keyframes clickRotationPulse {
-	0% { animation-timing-function: ease-out; }
-	30% { animation-timing-function: ease-in-out; }
-	100% { animation-timing-function: linear; }
-}
-
-/* SCROLL HEADER - 3D圆筒形卷轴木轴 */
-h3.keynoteHeader {
-	position: relative !important;
-	/* 真实3D圆柱体背景 - 完全重构的圆筒光影系统 */
-	background: 
-		/* 圆筒核心3D光影 - 水平方向的圆柱体受光渐变 */
-		linear-gradient(90deg, 
-			/* 左侧深阴影边缘 */
-			#2F1B14 0%,      /* 最深阴影 */
-			#4A3429 3%,      /* 深阴影过渡 */
-			#654321 8%,      /* 阴影面 */
-			#7A3F12 15%,     /* 阴影到中性过渡 */
-			#8B4513 25%,     /* 中性偏阴影 */
-			#A0522D 35%,     /* 中性色调 */
-			#B8860B 45%,     /* 中性偏亮 */
-			#D2691E 55%,     /* 受光面开始 */
-			#E6A857 65%,     /* 明亮受光面 */
-			#F4A460 75%,     /* 强光受光面 */
-			#FFE4B5 82%,     /* 最亮反光带 */
-			#F4A460 85%,     /* 反光过渡 */
-			#D2691E 90%,     /* 右侧受光减弱 */
-			#A0522D 95%,     /* 右侧中性 */
-			#8B4513 97%,     /* 右侧阴影开始 */
-			#654321 99%,     /* 右侧阴影 */
-			#2F1B14 100%     /* 右侧深阴影边缘 */
-		),
-		/* 顶部边缘高光条 - 模拟圆筒顶部边缘反光 */
-		linear-gradient(180deg, 
-			rgba(255, 248, 220, 0.95) 0%, 
-			rgba(255, 248, 220, 0.7) 2%, 
-			rgba(244, 164, 96, 0.4) 4%,
-			transparent 8%),
-		/* 底部边缘阴影条 - 模拟圆筒底部边缘阴影 */
-		linear-gradient(0deg, 
-			rgba(0, 0, 0, 0.8) 0%, 
-			rgba(47, 27, 20, 0.6) 2%, 
-			rgba(101, 67, 33, 0.4) 4%,
-			transparent 8%),
-		/* 木纹纹理层 - 沿圆筒轴向的木纹 */
-		repeating-linear-gradient(90deg, 
-			rgba(139, 69, 19, 0.3) 0px, 
-			rgba(139, 69, 19, 0.3) 0.2px, 
-			transparent 0.2px, transparent 1.8px,
-			rgba(101, 67, 33, 0.25) 1.8px, 
-			rgba(101, 67, 33, 0.25) 2px,
-			transparent 2px, transparent 4px,
-			rgba(160, 82, 45, 0.2) 4px, 
-			rgba(160, 82, 45, 0.2) 4.2px,
-			transparent 4.2px, transparent 6px),
-		/* 轻微的径向木纹变化 */
-		repeating-linear-gradient(88deg, 
-			rgba(210, 105, 30, 0.08) 0px, 
-			transparent 0.5px, transparent 8px, 
-			rgba(139, 69, 19, 0.06) 8.5px, 
-			transparent 9px, transparent 16px) !important;
-	border: none !important;
-	border-radius: 25px !important;
-	padding: 0 !important;
-	margin: 30px auto !important;
-	max-width: 85% !important;
-	height: 50px !important;
-	display: flex !important;
-	align-items: center !important;
-	justify-content: center !important;
-	cursor: pointer !important;
-	/* 应用流畅旋转动画 - 模拟真实木轴转动 */
-	animation: woodCylinderRotation 8s linear infinite paused !important;
-	/* 3D圆筒立体阴影效果 - 精细化真实光影模拟 */
+/* Keynote Header - 科技感液态玻璃容器 */
+.keynoteHeader {
+	text-decoration: none;
+	/* iOS 风格的毛玻璃效果 */
+	backdrop-filter: blur(20px) saturate(180%);
+	-webkit-backdrop-filter: blur(20px) saturate(180%);
+	/* 科技感圆角矩形 - 浅色渐变边框 */
+	border: 2px solid transparent;
+	border-radius: 24px !important;
+	/* 确保圆角效果可见 */
+	overflow: hidden;
+	background-image: 
+		/* 主背景保持玻璃效果 */
+		linear-gradient(135deg, 
+			rgba(255, 255, 255, 0.25) 0%, 
+			rgba(255, 255, 255, 0.15) 30%,
+			rgba(255, 255, 255, 0.1) 70%,
+			rgba(255, 255, 255, 0.2) 100%),
+		/* 渐变边框 - 非常浅的科技色彩 */
+		linear-gradient(135deg,
+			rgba(100, 200, 255, 0.15) 0%,
+			rgba(120, 220, 255, 0.08) 25%,
+			rgba(200, 240, 255, 0.06) 50%,
+			rgba(150, 230, 255, 0.1) 75%,
+			rgba(80, 180, 255, 0.12) 100%);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+	padding: 24px 32px;
+	margin: 20px 0;
+	/* iOS 风格的分层阴影系统 */
 	box-shadow: 
-		/* 外部投影层 - 模拟圆筒在表面投射的真实阴影 */
-		0 15px 40px rgba(139, 69, 19, 0.5),      /* 主要木色阴影 */
-		0 8px 25px rgba(0, 0, 0, 0.4),           /* 深度阴影 */
-		0 4px 15px rgba(101, 67, 33, 0.3),       /* 中层阴影 */
-		0 2px 8px rgba(0, 0, 0, 0.2),            /* 边缘阴影 */
-		
-		/* 顶部高光系统 - 模拟圆筒顶部边缘的光线反射 */
-		inset 0 3px 1px rgba(255, 248, 220, 0.9),  /* 最亮反光线 */
-		inset 0 2px 0 rgba(255, 255, 255, 0.7),    /* 主反光 */
-		inset 0 1px 0 rgba(244, 164, 96, 0.5),     /* 木色反光 */
-		
-		/* 底部阴影系统 - 模拟圆筒底部边缘的阴影凹陷 */
-		inset 0 -3px 1px rgba(0, 0, 0, 0.6),       /* 最深阴影线 */
-		inset 0 -2px 0 rgba(47, 27, 20, 0.8),      /* 深木色阴影 */
-		inset 0 -1px 0 rgba(101, 67, 33, 0.6),     /* 中木色阴影 */
-		
-		/* 左侧光影 - 模拟圆筒左侧面的光照渐变 */
-		inset 3px 0 6px rgba(244, 164, 96, 0.4),   /* 受光面 */
-		inset 2px 0 4px rgba(210, 105, 30, 0.3),   /* 过渡光 */
-		inset 1px 0 2px rgba(255, 248, 220, 0.2),  /* 边缘反光 */
-		
-		/* 右侧阴影 - 模拟圆筒右侧面的阴影渐变 */
-		inset -3px 0 6px rgba(101, 67, 33, 0.6),   /* 阴影面 */
-		inset -2px 0 4px rgba(75, 75, 75, 0.4),    /* 深阴影 */
-		inset -1px 0 2px rgba(47, 27, 20, 0.3),    /* 边缘深阴影 */
-		
-		/* 内部深度效果 - 增强圆筒内部的立体感 */
-		inset 0 0 12px rgba(139, 69, 19, 0.25),    /* 整体内阴影 */
-		inset 0 0 6px rgba(101, 67, 33, 0.2),      /* 中层内阴影 */
-		inset 0 0 3px rgba(75, 75, 75, 0.15) !important; /* 细节内阴影 */
-	transition: all 0.3s ease !important;
-	overflow: visible !important;
+		/* 主要投影 - 更深的对比 */
+		0 8px 32px rgba(0, 0, 0, 0.12),
+		0 4px 16px rgba(0, 0, 0, 0.08),
+		/* 强烈的顶部高光 - iOS 特色 */
+		inset 0 2px 0 rgba(255, 255, 255, 0.4),
+		/* 底部内阴影 - 创造凹陷感 */
+		inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+		/* 左侧高光 */
+		inset 1px 0 0 rgba(255, 255, 255, 0.25),
+		/* 整体内发光 */
+		inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+	/* 流畅的 iOS 风格过渡 */
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	position: relative;
+	overflow: hidden;
+	cursor: pointer;
+	user-select: none;
+	/* 硬件加速 */
+	transform: translateZ(0);
+	will-change: transform, background, box-shadow;
+	/* iOS 16 的清晰字重 */
+	font-weight: 400;
 }
 
-/* 木轴中央装饰条纹 */
-h3.keynoteHeader::before {
-	/* 在左端盖基础上添加装饰 */
-	background-image:
-		/* 装饰金属条纹 */
-		repeating-linear-gradient(45deg, 
-			transparent 0px, transparent 2px,
-			rgba(184, 134, 11, 0.3) 2px, rgba(184, 134, 11, 0.3) 3px,
-			transparent 3px, transparent 6px),
-		/* 原有年轮纹理 */
-		radial-gradient(circle at 60% 40%, 
-			transparent 8px, #654321 9px, transparent 10px,
-			transparent 12px, #8B4513 13px, transparent 14px,
-			transparent 16px, #A0522D 17px, transparent 18px,
-			transparent 20px, #654321 21px, transparent 22px),
-		/* 基础木色 */
-		radial-gradient(circle at 40% 30%, #F4A460 0%, #D2691E 30%, #8B4513 70%, #654321 100%);
-}
 
-/* 木轴两端 - 写实圆形端盖，模拟真实树木横截面 */
-h3.keynoteHeader::before,
-h3.keynoteHeader::after {
+/* iOS 16 光线反射效果 */
+.keynoteHeader::before {
 	content: '';
 	position: absolute;
-	top: -8px;
-	width: 66px;
-	height: 66px;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	/* iOS 风格的光线反射 */
+	background: linear-gradient(105deg, 
+		transparent 0%, 
+		rgba(255, 255, 255, 0.4) 40%,
+		rgba(255, 255, 255, 0.6) 50%,
+		rgba(255, 255, 255, 0.4) 60%,
+		transparent 100%);
+	/* iOS 风格的流畅过渡 */
+	transition: left 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	border-radius: 24px !important;
+	/* 混合模式增强光效 */
+	mix-blend-mode: overlay;
+}
+
+/* iOS 16 点击反馈效果 */
+.keynoteHeader::after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 0;
+	height: 0;
+	/* 更明显的点击波纹 */
+	background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
 	border-radius: 50%;
-	/* 写实木头端盖纹理 - 多层年轮效果 */
-	background: 
-		/* 最外层年轮 - 树皮边缘 */
-		radial-gradient(circle at 52% 48%, 
-			transparent 28px, rgba(101, 67, 33, 0.8) 29px, 
-			rgba(75, 75, 75, 0.6) 30px, transparent 31px),
-		/* 外层年轮组 */
-		radial-gradient(circle at 48% 52%, 
-			transparent 24px, rgba(139, 69, 19, 0.7) 25px, 
-			transparent 26px, transparent 22px, 
-			rgba(160, 82, 45, 0.6) 23px, transparent 24px),
-		/* 中层年轮组 */
-		radial-gradient(circle at 55% 45%, 
-			transparent 18px, rgba(101, 67, 33, 0.8) 19px, 
-			transparent 20px, transparent 16px, 
-			rgba(139, 69, 19, 0.7) 17px, transparent 18px,
-			transparent 14px, rgba(160, 82, 45, 0.6) 15px, transparent 16px),
-		/* 内层年轮组 */
-		radial-gradient(circle at 45% 55%, 
-			transparent 10px, rgba(139, 69, 19, 0.9) 11px, 
-			transparent 12px, transparent 8px, 
-			rgba(101, 67, 33, 0.8) 9px, transparent 10px,
-			transparent 6px, rgba(160, 82, 45, 0.7) 7px, transparent 8px),
-		/* 树心纹理 */
-		radial-gradient(circle at 50% 50%, 
-			rgba(139, 69, 19, 0.9) 0px, rgba(139, 69, 19, 0.7) 2px,
-			transparent 3px, transparent 4px,
-			rgba(101, 67, 33, 0.6) 5px, transparent 6px),
-		/* 基础木色渐变 - 从中心到边缘 */
-		radial-gradient(circle at 50% 50%, 
-			#F4A460 0%,     /* 中心最亮 */
-			#D2691E 25%,    /* 内层过渡 */
-			#A0522D 50%,    /* 中层标准色 */
-			#8B4513 75%,    /* 外层过渡 */
-			#654321 95%,    /* 边缘深色 */
-			#2F1B14 100%    /* 最外层最深 */
-		);
-	/* 立体端盖阴影 - 增强3D圆盘效果 */
-	box-shadow: 
-		/* 外部投影 - 端盖投射的阴影 */
-		0 8px 25px rgba(139, 69, 19, 0.6),
-		0 4px 15px rgba(0, 0, 0, 0.4),
-		0 2px 8px rgba(101, 67, 33, 0.3),
-		/* 顶部高光 - 圆盘表面反光 */
-		inset 0 4px 1px rgba(255, 248, 220, 0.6),
-		inset 0 3px 0 rgba(244, 164, 96, 0.4),
-		inset 0 2px 0 rgba(210, 105, 30, 0.3),
-		/* 底部阴影 - 圆盘边缘凹陷 */
-		inset 0 -4px 1px rgba(0, 0, 0, 0.7),
-		inset 0 -3px 0 rgba(47, 27, 20, 0.6),
-		inset 0 -2px 0 rgba(101, 67, 33, 0.5),
-		/* 侧面立体效果 */
-		inset 2px 0 4px rgba(244, 164, 96, 0.3),
-		inset -2px 0 4px rgba(101, 67, 33, 0.5),
-		/* 内部深度 */
-		inset 0 0 8px rgba(139, 69, 19, 0.3);
-	border: 1px solid rgba(101, 67, 33, 0.8);
-	/* 端盖也有旋转动画，与主轴同步 */
-	animation: endCapRotation 8s linear infinite paused !important;
+	transform: translate(-50%, -50%);
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	opacity: 0;
 }
 
-/* 左端盖 */
-h3.keynoteHeader::before {
-	left: -33px;
-	/* 左侧光照效果 */
-	background: 
-		radial-gradient(circle at 60% 40%, 
-			transparent 8px, #654321 9px, transparent 10px,
-			transparent 12px, #8B4513 13px, transparent 14px,
-			transparent 16px, #A0522D 17px, transparent 18px,
-			transparent 20px, #654321 21px, transparent 22px),
-		radial-gradient(circle at 40% 30%, #F4A460 0%, #D2691E 30%, #8B4513 70%, #654321 100%);
-}
-
-/* 右端盖 */
-h3.keynoteHeader::after {
-	right: -33px;
-	/* 右侧阴影效果 */
-	background: 
-		radial-gradient(circle at 40% 60%, 
-			transparent 8px, #654321 9px, transparent 10px,
-			transparent 12px, #8B4513 13px, transparent 14px,
-			transparent 16px, #A0522D 17px, transparent 18px,
-			transparent 20px, #654321 21px, transparent 22px),
-		radial-gradient(circle at 60% 70%, #8B4513 0%, #654321 50%, #2F1B14 100%);
-}
-
-/* 木轴中间的金属加固环 */
-h3.keynoteHeader::after {
-	/* 添加中间的金属环装饰 */
+/* iOS 16 悬浮状态增强 */
+.keynoteHeader:hover {
+	/* iOS 风格的轻微浮起 */
+	transform: translateY(-2px) scale(1.005);
+	/* 科技感悬浮状态 - 增强的渐变边框 */
 	background-image: 
-		/* 金属环 */
-		linear-gradient(90deg, 
-			transparent 0%, transparent 45%, 
-			#B8860B 47%, #FFD700 49%, #B8860B 50%, #8B7355 51%, #B8860B 53%, 
-			transparent 55%, transparent 100%),
-		/* 原有的端盖背景 */
-		radial-gradient(circle at 40% 60%, 
-			transparent 8px, #8B4513 9px, transparent 10px,
-			transparent 12px, #A0522D 13px, transparent 14px,
-			transparent 16px, #CD853F 17px, transparent 18px,
-			transparent 20px, #8B4513 21px, transparent 22px),
-		radial-gradient(circle at 60% 70%, #A0522D 0%, #8B4513 40%, #654321 80%, #2F1B14 100%);
-}
-
-/* SCROLL HEADER HOVER EFFECTS - 写实木轴悬停效果，增强3D圆筒视觉 */
-h3.keynoteHeader:hover,
-h3.keynoteHeader:focus {
-	/* 悬停时增强圆筒形光影效果 */
-	background: 
-		/* 增强的顶部高光 */
-		radial-gradient(ellipse 100% 25% at 50% 0%, 
-			rgba(255, 248, 220, 0.95) 0%, 
-			rgba(255, 248, 220, 0.8) 25%, 
-			rgba(255, 248, 220, 0.5) 50%,
-			transparent 100%),
-		/* 增强的底部阴影 */
-		radial-gradient(ellipse 100% 25% at 50% 100%, 
-			rgba(0, 0, 0, 0.7) 0%, 
-			rgba(0, 0, 0, 0.5) 25%, 
-			rgba(0, 0, 0, 0.3) 50%,
-			transparent 100%),
-		/* 增强的侧面圆筒渐变 */
-		radial-gradient(ellipse 130% 100% at 50% 50%, 
-			#F4A460 0%,    /* 中心受光面更亮 */
-			#E6A857 20%,   /* 增强受光过渡 */
-			#D2691E 35%,   /* 受光过渡 */
-			#A0522D 55%,   /* 侧面标准色 */
-			#8B4513 75%,   /* 阴影过渡 */
-			#654321 90%,   /* 边缘阴影面 */
-			#4A4A4A 100%   /* 最深阴影 */
-		),
-		/* 悬停时更精细的木纹 */
-		repeating-linear-gradient(90deg, 
-			#8B4513 0px, #8B4513 0.2px, 
-			#A0522D 0.2px, #A0522D 1.2px, 
-			#D2691E 1.2px, #D2691E 1.4px,
-			#B8860B 1.4px, #B8860B 1.6px,
-			#8B4513 1.6px, #8B4513 2.5px,
-			#F4A460 2.5px, #F4A460 2.7px,
-			#A0522D 2.7px, #A0522D 3.8px) !important;
-	
-	/* 悬停时增强3D圆筒阴影效果 */
+		/* 增强的玻璃背景 */
+		linear-gradient(135deg, 
+			rgba(255, 255, 255, 0.35) 0%, 
+			rgba(255, 255, 255, 0.25) 30%,
+			rgba(255, 255, 255, 0.15) 70%,
+			rgba(255, 255, 255, 0.3) 100%),
+		/* 增强的科技色边框 */
+		linear-gradient(135deg,
+			rgba(100, 200, 255, 0.25) 0%,
+			rgba(120, 220, 255, 0.18) 25%,
+			rgba(200, 240, 255, 0.12) 50%,
+			rgba(150, 230, 255, 0.2) 75%,
+			rgba(80, 180, 255, 0.22) 100%);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+	/* 增强的模糊效果 */
+	backdrop-filter: blur(25px) saturate(200%);
+	-webkit-backdrop-filter: blur(25px) saturate(200%);
+	/* 增强的阴影系统 */
 	box-shadow: 
-		/* 外部投影增强 */
-		0 18px 45px rgba(139, 69, 19, 0.6),      
-		0 10px 30px rgba(0, 0, 0, 0.5),           
-		0 6px 20px rgba(101, 67, 33, 0.4),       
-		0 3px 12px rgba(0, 0, 0, 0.3),           
-		
-		/* 顶部高光系统增强 */
-		inset 0 4px 2px rgba(255, 248, 220, 0.95), 
-		inset 0 3px 1px rgba(255, 255, 255, 0.8),   
-		inset 0 2px 0 rgba(244, 164, 96, 0.6),      
-		
-		/* 底部阴影系统增强 */
-		inset 0 -4px 2px rgba(0, 0, 0, 0.7),        
-		inset 0 -3px 1px rgba(47, 27, 20, 0.9),     
-		inset 0 -2px 0 rgba(101, 67, 33, 0.7),      
-		
-		/* 侧面立体光影增强 */
-		inset 4px 0 8px rgba(244, 164, 96, 0.5),   
-		inset 3px 0 6px rgba(210, 105, 30, 0.4),   
-		inset 2px 0 4px rgba(255, 248, 220, 0.3),  
-		inset -4px 0 8px rgba(101, 67, 33, 0.7),   
-		inset -3px 0 6px rgba(75, 75, 75, 0.5),    
-		inset -2px 0 4px rgba(47, 27, 20, 0.4),    
-		
-		/* 内部深度效果增强 */
-		inset 0 0 15px rgba(139, 69, 19, 0.3),     
-		inset 0 0 8px rgba(101, 67, 33, 0.25),     
-		inset 0 0 4px rgba(75, 75, 75, 0.2) !important; 
-	
-	/* 悬停时轻微上浮效果，模拟圆筒被轻微抬起 */
-	transform: translateY(-2px) scale(1.02) !important;
-	/* 悬停时启动旋转动画 - 模拟卷轴轴被转动 */
-	animation-play-state: running !important;
+		/* 更深的主投影 */
+		0 12px 48px rgba(0, 0, 0, 0.15),
+		0 6px 24px rgba(0, 0, 0, 0.1),
+		/* 更强烈的顶部高光 */
+		inset 0 3px 0 rgba(255, 255, 255, 0.5),
+		/* 更深的底部内阴影 */
+		inset 0 -2px 0 rgba(0, 0, 0, 0.12),
+		/* 增强的左侧高光 */
+		inset 2px 0 0 rgba(255, 255, 255, 0.3),
+		/* 更亮的内发光 */
+		inset 0 0 0 1px rgba(255, 255, 255, 0.15);
 }
 
-/* 悬停时端盖也要有反应 - 增强3D圆盘效果 */
-h3.keynoteHeader:hover::before,
-h3.keynoteHeader:focus::before {
-	/* 左端盖悬停时增强年轮和光影 */
-	background: 
-		/* 增强的最外层年轮 */
-		radial-gradient(circle at 52% 48%, 
-			transparent 28px, rgba(139, 69, 19, 0.9) 29px, 
-			rgba(75, 75, 75, 0.8) 30px, transparent 31px),
-		/* 增强的外层年轮组 */
-		radial-gradient(circle at 48% 52%, 
-			transparent 24px, rgba(160, 82, 45, 0.8) 25px, 
-			transparent 26px, transparent 22px, 
-			rgba(210, 105, 30, 0.7) 23px, transparent 24px),
-		/* 增强的中层年轮组 */
-		radial-gradient(circle at 55% 45%, 
-			transparent 18px, rgba(139, 69, 19, 0.9) 19px, 
-			transparent 20px, transparent 16px, 
-			rgba(160, 82, 45, 0.8) 17px, transparent 18px,
-			transparent 14px, rgba(210, 105, 30, 0.7) 15px, transparent 16px),
-		/* 增强的树心纹理 */
-		radial-gradient(circle at 50% 50%, 
-			rgba(244, 164, 96, 0.9) 0px, rgba(210, 105, 30, 0.8) 2px,
-			transparent 3px, transparent 4px,
-			rgba(139, 69, 19, 0.7) 5px, transparent 6px),
-		/* 增强的基础木色渐变 - 悬停时更明亮 */
-		radial-gradient(circle at 40% 30%, 
-			#F4A460 0%,     /* 中心最亮增强 */
-			#E6A857 20%,    /* 内层过渡增强 */
-			#D2691E 40%,    /* 中层标准色增强 */
-			#A0522D 70%,    /* 外层过渡 */
-			#8B4513 90%,    /* 边缘深色 */
-			#654321 100%    /* 最外层 */
-		);
-	/* 悬停时增强端盖立体阴影 */
-	box-shadow: 
-		/* 外部投影增强 */
-		0 10px 30px rgba(139, 69, 19, 0.7),
-		0 6px 20px rgba(0, 0, 0, 0.5),
-		0 3px 12px rgba(101, 67, 33, 0.4),
-		/* 顶部高光增强 */
-		inset 0 5px 2px rgba(255, 248, 220, 0.7),
-		inset 0 4px 1px rgba(244, 164, 96, 0.5),
-		inset 0 3px 0 rgba(210, 105, 30, 0.4),
-		/* 底部阴影增强 */
-		inset 0 -5px 2px rgba(0, 0, 0, 0.8),
-		inset 0 -4px 1px rgba(47, 27, 20, 0.7),
-		inset 0 -3px 0 rgba(101, 67, 33, 0.6),
-		/* 侧面立体效果增强 */
-		inset 3px 0 6px rgba(244, 164, 96, 0.4),
-		inset -3px 0 6px rgba(101, 67, 33, 0.6),
-		/* 内部深度增强 */
-		inset 0 0 10px rgba(139, 69, 19, 0.4);
-	/* 悬停时端盖开始旋转 */
-	animation-play-state: running !important;
+.keynoteHeader:hover::before {
+	left: 100%;
 }
 
-h3.keynoteHeader:hover::after,
-h3.keynoteHeader:focus::after {
-	background: 
-		radial-gradient(circle at 40% 60%, 
-			transparent 8px, #8B4513 9px, transparent 10px,
-			transparent 12px, #A0522D 13px, transparent 14px,
-			transparent 16px, #CD853F 17px, transparent 18px,
-			transparent 20px, #8B4513 21px, transparent 22px),
-		radial-gradient(circle at 60% 70%, #A0522D 0%, #8B4513 40%, #654321 80%, #2F1B14 100%);
-	box-shadow: 
-		0 8px 25px rgba(139, 69, 19, 0.6),
-		inset 0 4px 10px rgba(255, 248, 220, 0.5),
-		inset 0 -4px 10px rgba(0, 0, 0, 0.5),
-		inset 0 0 0 2px rgba(101, 67, 33, 0.7);
-	/* 悬停时右端盖也开始旋转 */
-	animation-play-state: running !important;
+.keynoteHeader:hover,
+.keynoteHeader:focus {
+	text-decoration: none;
 }
 
-/* 点击时的快速旋转效果 - 模拟卷轴被点击转动 */
-h3.keynoteHeader:active,
-h3.keynoteHeader.clicked {
-	/* 点击时临时加速旋转 */
-	animation: woodCylinderRotation 2s ease-in-out infinite running !important;
-	transform: translateY(-1px) scale(0.98) !important;
+/* iOS 16 点击波纹扩散 */
+.keynoteHeader:hover::after {
+	width: 150px;
+	height: 150px;
+	opacity: 0.6;
 }
 
-h3.keynoteHeader:active::before,
-h3.keynoteHeader:active::after,
-h3.keynoteHeader.clicked::before,
-h3.keynoteHeader.clicked::after {
-	/* 端盖点击时也加速旋转 */
-	animation: endCapRotation 2s ease-in-out infinite running !important;
-}
-
-/* SCROLL HEADER TEXT - 卷轴标题文字 */
+/* iOS 16 风格文字效果 */
 .keynoteHeaderText {
 	display: inline;
-	font-family: 'Noto Serif SC', 'STSong', 'Microsoft YaHei', serif;
-	font-size: 18px;
-	font-weight: 700;
-	color: #FFF8DC; /* 古纸白色 */
+	/* iOS 16 系统字体 */
+	font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+	font-size: 20px;
+	/* iOS 16 的清晰字重 */
+	font-weight: 600;
+	/* 更清晰的渐变色彩 - 更高对比度 */
+	background: linear-gradient(135deg, 
+		#1a73e8 0%, 
+		#4285f4 30%,
+		#5b9bd5 70%,
+		#74a9d8 100%);
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 	text-decoration: none;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-	letter-spacing: 2px;
-	margin-left: 8px;
+	/* iOS 16 的适中字符间距 */
+	letter-spacing: 0.3px;
+	/* 更慢更柔和的动画 */
+	animation: iosTextFlow 10s ease-in-out infinite;
+}
+
+@keyframes iosTextFlow {
+	0%, 100% { background-position: 0% 50%; }
+	50% { background-position: 100% 50%; }
 }
 
 .keynoteHeaderText:hover,
 .keynoteHeaderText:focus {
 	text-decoration: none;
-	color: #FFFAF0;
 }
 
-/* SCROLL INDICATOR - 卷轴展开指示器（替换三角形为中式符号） */
+/* iOS 16 箭头图标 */
 .triangle {
 	display: inline-block;
-	font-family: 'Noto Serif SC', serif;
-	font-size: 20px;
-	color: #FFF8DC;
+	font-family: inherit;
+	font-size: 16px;
+	/* 与文字相同的高对比度渐变 */
+	background: linear-gradient(135deg, 
+		#1a73e8 0%, 
+		#4285f4 30%,
+		#5b9bd5 70%,
+		#74a9d8 100%);
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 	text-decoration: none;
-	transform: rotate(0deg);
+	transform: rotate(90deg) scale(1);
 	transform-origin: center center;
-	transition: all 0.4s ease;
-	margin-right: 8px;
-	font-weight: bold;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.triangle::before {
-	content: '▼'; /* 使用中文样式的向下箭头 */
+	/* iOS 16 的流畅过渡 */
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	margin-right: 10px;
+	/* 同步渐变动画 */
+	animation: iosTextFlow 10s ease-in-out infinite;
+	opacity: 0.9;
 }
 
 .triangle:hover,
 .triangle:focus {
 	text-decoration: none;
-	color: #FFFAF0;
 }
 
-/* EXPANDED STATE - 卷轴展开状态 */
+/* iOS 16 箭头展开状态 */
 .keynoteHeader.open .triangle {
-	transform: rotate(180deg);
+	transform: rotate(180deg) scale(1.05);
+	opacity: 1;
 }
 
-.keynoteHeader.open .triangle::before {
-	content: '▲'; /* 展开时显示向上箭头 */
-}
-/* ============================================================================
- * SCROLL CONTENT AREA - 卷轴内容区域
- * ============================================================================ */
-
-/* SCROLL CONTENT CONTAINER - 卷轴内容容器 */
-div.keynoteContent {
-	position: relative !important;
-	background: linear-gradient(135deg, #FAF0E6 0%, #FFF8DC 100%) !important;
-	/* 古典纸张边框 */
-	border: 3px solid #8B4513 !important;
-	border-top: none !important;
-	border-image: linear-gradient(45deg, #8B4513, #A0522D, #8B4513) 1 !important;
-	margin-top: 0 !important;
-	margin-left: auto !important;
-	margin-right: auto !important;
-	max-width: 90% !important;
-	/* 卷轴纸张阴影 */
-	box-shadow: 
-		0 10px 30px rgba(139, 69, 19, 0.3),
-		inset 0 0 50px rgba(160, 82, 45, 0.05),
-		inset 0 0 100px rgba(101, 67, 33, 0.02) !important;
-	/* 古纸纹理 */
+/* iOS 16 内容区域玻璃效果 */
+.keynoteContent {
+	display: none;
+	overflow: hidden;
+	opacity: 0;
+	transform: translateY(-20px) scale(0.98);
+	/* iOS 16 风格的展开动画 */
+	transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	/* iOS 16 的深层模糊效果 */
+	backdrop-filter: blur(15px) saturate(150%);
+	-webkit-backdrop-filter: blur(15px) saturate(150%);
+	/* 内容区域的科技感设计 - 渐变边框 */
+	border: 1.5px solid transparent;
 	background-image: 
-		radial-gradient(circle at 10% 20%, rgba(139, 69, 19, 0.02) 0%, transparent 50%),
-		radial-gradient(circle at 90% 80%, rgba(160, 82, 45, 0.02) 0%, transparent 50%),
-		linear-gradient(90deg, transparent 48%, rgba(139, 69, 19, 0.005) 50%, transparent 52%) !important;
-}
-
-/* SCROLL TEXT STYLING - 卷轴文字样式 */
-.keynoteContent p {
-	font-size: 15px;
-	line-height: 1.8; /* 传统中文行间距 */
-	margin-bottom: 12px;
-	color: #654321; /* 深棕色墨水色 */
-	font-family: 'Noto Serif SC', 'STSong', 'Microsoft YaHei', serif;
-	text-indent: 2em; /* 中文传统首行缩进 */
-	letter-spacing: 1px;
-}
-
-/* SCROLL FIRST PARAGRAPH - 卷轴首段特殊样式 */
-.keynoteContent p:first-child {
-	font-weight: 700;
-	color: #8B4513;
-	font-size: 16px;
-	text-align: center;
-	text-indent: 0;
-	margin-bottom: 20px;
-	letter-spacing: 3px;
-	position: relative;
-}
-
-/* CLASSICAL SEPARATOR - 古典分隔线 */
-.keynoteContent hr {
-	border: 0;
-	height: 3px;
-	background: linear-gradient(90deg, 
-		transparent 0%, 
-		#8B4513 10%, 
-		#A0522D 50%, 
-		#8B4513 90%, 
-		transparent 100%);
-	margin: 25px 0;
-	position: relative;
-}
-
-/* 分隔线装饰 */
-.keynoteContent hr::before {
-	content: '❋';
-	position: absolute;
-	left: 50%;
-	top: -8px;
-	transform: translateX(-50%);
-	background: #FAF0E6;
-	padding: 0 10px;
-	color: #8B4513;
-	font-size: 14px;
-}
-
-/* ============================================================================
- * CLASSICAL SPEAKER CARDS - 古典演讲者卡片
- * ============================================================================
- * 模仿古代名帖样式的个人信息卡片
- * Personal information cards mimicking ancient name cards
- * ============================================================================ */
-
-/* SPEAKER CARD CONTAINER - 演讲者卡片容器 */
-.keynoteContent .panel {
-	background: linear-gradient(135deg, #FFFEF7 0%, #FDF5E6 100%);
-	border: 2px solid #CD853F;
-	border-radius: 0;
-	margin-bottom: 20px;
-	position: relative;
-	/* 传统名帖阴影 */
+		/* 清晰的玻璃背景 */
+		linear-gradient(135deg, 
+			rgba(255, 255, 255, 0.15) 0%, 
+			rgba(255, 255, 255, 0.08) 50%,
+			rgba(255, 255, 255, 0.12) 100%),
+		/* 更淡的科技色边框 */
+		linear-gradient(135deg,
+			rgba(100, 200, 255, 0.08) 0%,
+			rgba(120, 220, 255, 0.05) 25%,
+			rgba(200, 240, 255, 0.04) 50%,
+			rgba(150, 230, 255, 0.06) 75%,
+			rgba(80, 180, 255, 0.07) 100%);
+	background-origin: border-box;
+	background-clip: padding-box, border-box;
+	border-radius: 20px !important;
+	/* 确保内容区圆角效果可见 */
+	overflow: hidden;
+	padding: 28px;
+	margin: 8px 0 24px 0;
+	/* iOS 16 风格的内容区阴影 */
 	box-shadow: 
-		4px 4px 12px rgba(139, 69, 19, 0.2),
-		inset 0 0 30px rgba(160, 82, 45, 0.03);
-	transition: all 0.3s ease;
-	overflow: visible;
-	/* 古纸纹理 */
-	background-image: 
-		radial-gradient(circle at 15% 25%, rgba(139, 69, 19, 0.01) 0%, transparent 40%),
-		radial-gradient(circle at 85% 75%, rgba(160, 82, 45, 0.01) 0%, transparent 40%);
+		/* 主要内阴影 */
+		0 2px 16px rgba(0, 0, 0, 0.08),
+		0 1px 8px rgba(0, 0, 0, 0.04),
+		/* 顶部高光 */
+		inset 0 1px 0 rgba(255, 255, 255, 0.3),
+		/* 底部阴影 */
+		inset 0 -1px 0 rgba(0, 0, 0, 0.05);
 }
 
-/* 名帖四角装饰 */
-.keynoteContent .panel::before,
-.keynoteContent .panel::after {
-	content: '';
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	border: 2px solid #8B4513;
-}
-
-.keynoteContent .panel::before {
-	top: -2px;
-	left: -2px;
-	border-right: none;
-	border-bottom: none;
-}
-
-.keynoteContent .panel::after {
-	bottom: -2px;
-	right: -2px;
-	border-left: none;
-	border-top: none;
-}
-
-/* SPEAKER CARD HOVER - 演讲者卡片悬停效果 */
-.keynoteContent .panel:hover {
-	background: linear-gradient(135deg, #FFFEF7 0%, #FFF8DC 100%);
-	border: 2px solid #B8860B;
-	/* 轻微浮起效果 */
-	box-shadow: 
-		6px 6px 16px rgba(139, 69, 19, 0.25),
-		inset 0 0 40px rgba(184, 134, 11, 0.05);
-	transform: translateY(-3px) translateX(-2px);
-}
-
-/* SPEAKER CARD TITLE BAR - 演讲者卡片标题栏 */
-.keynoteContent .panel-heading {
-	background: linear-gradient(135deg, #F5DEB3 0%, #DEB887 100%);
-	border-bottom: 2px solid #CD853F;
-	border-radius: 0;
-	padding: 12px 20px;
-	position: relative;
-	text-align: center;
-}
-
-/* 标题栏装饰边框 */
-.keynoteContent .panel-heading::before {
-	content: '';
-	position: absolute;
-	top: 3px;
-	left: 3px;
-	right: 3px;
-	bottom: 3px;
-	border: 1px solid #8B4513;
-	pointer-events: none;
-}
-
-/* SPEAKER NAME TITLE - 演讲者姓名标题 */
-.keynoteContent .panel-title {
-	font-size: 16px;
-	font-weight: 700;
-	margin: 0;
-	font-family: 'Noto Serif SC', 'STSong', serif;
-	letter-spacing: 2px;
-}
-
-/* SPEAKER NAME LINKS - 演讲者姓名链接 */
-.keynoteContent .panel-title a {
-	color: #8B4513;
-	text-decoration: none;
+/* iOS 16 展开状态 */
+.keynoteContent.show {
 	display: block;
+	opacity: 1;
+	transform: translateY(0) scale(1);
+}
+
+/* 科技感呼吸动画 - 边框轻微脉动 */
+@keyframes techBreathe {
+	0%, 100% { 
+		filter: brightness(100%) hue-rotate(0deg); 
+		transform: scale(1);
+	}
+	50% { 
+		filter: brightness(110%) hue-rotate(10deg); 
+		transform: scale(1.002);
+	}
+}
+
+/* 科技感边框闪烁 - 更加细微 */
+@keyframes borderGlow {
+	0%, 100% { 
+		box-shadow: 
+			0 8px 32px rgba(0, 0, 0, 0.12),
+			0 4px 16px rgba(0, 0, 0, 0.08),
+			inset 0 2px 0 rgba(255, 255, 255, 0.4),
+			inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+			inset 1px 0 0 rgba(255, 255, 255, 0.25),
+			inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+	}
+	50% { 
+		box-shadow: 
+			0 8px 32px rgba(0, 0, 0, 0.12),
+			0 4px 16px rgba(0, 0, 0, 0.08),
+			inset 0 2px 0 rgba(255, 255, 255, 0.4),
+			inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+			inset 1px 0 0 rgba(255, 255, 255, 0.25),
+			inset 0 0 0 1px rgba(100, 200, 255, 0.15);
+	}
+}
+
+.keynoteHeader {
+	animation: techBreathe 6s ease-in-out infinite, borderGlow 4s ease-in-out infinite;
+}
+
+/* =====================================================
+   Speaker 人物卡片设计 (Tech Glass Speaker Cards)
+   -----------------------------------------------------
+   为现有的 panel 元素添加液态玻璃卡片效果
+   ===================================================== */
+
+/* Keynote内容区域的Panel卡片化 */
+.keynoteContent .panel.panel-default {
+	/* 科技感液态玻璃卡片效果 */
+	border: 1.5px solid transparent !important;
+	border-radius: 16px !important;
+	background-image: 
+		/* 卡片背景 */
+		linear-gradient(135deg, 
+			rgba(255, 255, 255, 0.1) 0%, 
+			rgba(255, 255, 255, 0.05) 50%,
+			rgba(255, 255, 255, 0.08) 100%),
+		/* 科技色边框 */
+		linear-gradient(135deg,
+			rgba(100, 200, 255, 0.06) 0%,
+			rgba(120, 220, 255, 0.04) 25%,
+			rgba(200, 240, 255, 0.03) 50%,
+			rgba(150, 230, 255, 0.05) 75%,
+			rgba(80, 180, 255, 0.06) 100%) !important;
+	background-origin: border-box !important;
+	background-clip: padding-box, border-box !important;
+	/* 玻璃模糊效果 */
+	backdrop-filter: blur(12px) saturate(140%) !important;
+	-webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+	/* 卡片间距和布局 */
+	margin-bottom: 20px !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+	/* 平滑过渡 */
+	transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+	/* 卡片阴影 */
+	box-shadow: 
+		0 4px 20px rgba(0, 0, 0, 0.06),
+		0 2px 8px rgba(0, 0, 0, 0.04),
+		inset 0 1px 0 rgba(255, 255, 255, 0.15),
+		inset 0 -1px 0 rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Panel卡片悬浮效果 */
+.keynoteContent .panel.panel-default:hover {
+	transform: translateY(-3px) scale(1.01) !important;
+	/* 增强的背景和边框 */
+	background-image: 
+		linear-gradient(135deg, 
+			rgba(255, 255, 255, 0.15) 0%, 
+			rgba(255, 255, 255, 0.08) 50%,
+			rgba(255, 255, 255, 0.12) 100%),
+		linear-gradient(135deg,
+			rgba(100, 200, 255, 0.1) 0%,
+			rgba(120, 220, 255, 0.07) 25%,
+			rgba(200, 240, 255, 0.05) 50%,
+			rgba(150, 230, 255, 0.08) 75%,
+			rgba(80, 180, 255, 0.1) 100%) !important;
+	/* 增强的模糊和阴影 */
+	backdrop-filter: blur(16px) saturate(160%) !important;
+	-webkit-backdrop-filter: blur(16px) saturate(160%) !important;
+	box-shadow: 
+		0 8px 32px rgba(0, 0, 0, 0.08),
+		0 4px 16px rgba(0, 0, 0, 0.05),
+		inset 0 2px 0 rgba(255, 255, 255, 0.25),
+		inset 0 -2px 0 rgba(0, 0, 0, 0.06) !important;
+}
+
+/* 演讲标题区域 - 现代化设计 */
+.keynoteContent .panel-heading {
+	background: none !important;
+	border: none !important;
+	padding: 24px 24px 20px 24px !important;
+	border-radius: 0 !important;
+}
+
+.keynoteContent .panel-title {
+	margin: 0 !important;
+	line-height: 1.5 !important;
+}
+
+.keynoteContent .panel-title a {
+	/* 真正的标题样式 */
+	font-size: 16px !important;
+	font-weight: 600 !important;
+	font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+	color: rgba(0, 0, 0, 0.85) !important;
+	font-style: normal !important;
+	text-decoration: none !important;
+	display: block !important;
+	line-height: 1.4 !important;
+	/* 添加标题前缀 */
 	position: relative;
+	padding-left: 20px;
 }
 
-.keynoteContent .panel-title a:hover {
-	color: #A0522D;
-	text-decoration: none;
+/* 标题前的装饰图标 */
+.keynoteContent .panel-title a::before {
+	content: "🎯";
+	position: absolute;
+	left: 0;
+	top: 0;
+	font-size: 14px;
+	opacity: 0.7;
 }
 
-/* 姓名下方装饰线 */
+/* 或者用CSS图标替代emoji */
 .keynoteContent .panel-title a::after {
-	content: '';
+	content: "";
 	position: absolute;
-	bottom: -2px;
-	left: 50%;
-	transform: translateX(-50%);
-	width: 0;
-	height: 1px;
-	background: #CD853F;
-	transition: width 0.3s ease;
+	left: 2px;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 8px;
+	height: 8px;
+	background: linear-gradient(135deg, #1a73e8, #4285f4);
+	border-radius: 2px;
+	opacity: 0.8;
+	display: none; /* 默认隐藏，如果不想要emoji可以显示这个 */
 }
 
-.keynoteContent .panel-title a:hover::after {
-	width: 60%;
-}
-
-/* SPEAKER INFORMATION AREA - 演讲者信息区域 */
-.keynoteContent .media {
-	padding: 20px;
-	border-radius: 0;
-	position: relative;
-}
-
-/* SPEAKER PORTRAIT - 演讲者肖像 */
-.keynoteContent .media-object {
-	border-radius: 0; /* 古典方形肖像 */
-	border: 3px solid #8B4513;
-	box-shadow: 
-		3px 3px 8px rgba(139, 69, 19, 0.3),
-		inset 0 0 10px rgba(160, 82, 45, 0.1);
+/* 标题悬浮效果 */
+.keynoteContent .panel-title a:hover {
+	color: rgba(0, 0, 0, 0.95) !important;
+	transform: translateX(2px);
 	transition: all 0.3s ease;
-	position: relative;
 }
 
-/* 肖像框装饰 */
-.keynoteContent .media-object::before {
-	content: '';
-	position: absolute;
-	top: -3px;
-	left: -3px;
-	right: -3px;
-	bottom: -3px;
-	border: 1px solid #CD853F;
-	pointer-events: none;
-}
-
-.keynoteContent .media-object:hover {
-	transform: scale(1.05);
-	border: 3px solid #A0522D;
-	box-shadow: 
-		4px 4px 12px rgba(139, 69, 19, 0.4),
-		inset 0 0 15px rgba(160, 82, 45, 0.15);
+/* Media对象布局优化 */
+.keynoteContent .media {
+	padding: 0 24px 24px 24px !important;
+	margin: 0 !important;
+	display: flex !important;
+	align-items: flex-start !important;
+	gap: 24px !important;
 }
 
 .keynoteContent .media-left {
-	padding-right: 20px;
+	flex-shrink: 0 !important;
 }
 
-/* SPEAKER DETAILS - 演讲者详细信息 */
+.keynoteContent .media-object {
+	width: 150px !important;
+	height: 200px !important;
+	border-radius: 22px !important;
+	object-fit: cover !important;
+	border: 2px solid rgba(255, 255, 255, 0.25) !important;
+	transition: all 0.3s ease !important;
+}
+
+.keynoteContent .panel:hover .media-object {
+	border-color: rgba(100, 200, 255, 0.35) !important;
+	transform: scale(1.05) !important;
+}
+
+.keynoteContent .media-body {
+	flex: 1 !important;
+	min-width: 0 !important;
+}
+
+/* Speaker信息排版优化 - 清晰的三行结构 */
+
+/* 重置所有段落的默认样式 */
 .keynoteContent .media-body p {
-	margin-bottom: 6px;
-	font-family: 'Noto Serif SC', 'STSong', serif;
-	line-height: 1.6;
-	text-indent: 0; /* 个人信息不缩进 */
+	margin: 0 !important;
+	line-height: 1.4 !important;
 }
 
-/* SPEAKER NAME LINK - 演讲者姓名链接 */
-.keynoteContent .media-body p:first-child a {
-	color: #8B4513;
-	font-weight: 700;
-	text-decoration: none;
-	font-size: 16px;
-	letter-spacing: 1px;
-	position: relative;
+/* 第一行：Speaker姓名 - 突出显示 */
+.keynoteContent .media-body p:first-child {
+	margin-bottom: 12px !important;
 }
 
-.keynoteContent .media-body p:first-child a:hover {
-	color: #A0522D;
-	text-decoration: none;
+.keynoteContent .media-body strong a {
+	font-size: 18px !important;
+	font-weight: 700 !important;
+	background: linear-gradient(135deg, 
+		#1a73e8 0%, 
+		#4285f4 30%,
+		#5b9bd5 70%,
+		#74a9d8 100%) !important;
+	-webkit-background-clip: text !important;
+	-webkit-text-fill-color: transparent !important;
+	background-clip: text !important;
+	text-decoration: none !important;
+	font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+	display: block !important;
+	line-height: 1.3 !important;
 }
 
-/* POSITION AND AFFILIATION - 职位和单位 */
-.keynoteContent .media-body p em {
-	color: #654321;
-	font-style: normal;
-	font-size: 14px;
-	font-weight: 500;
-	display: block;
-	margin-top: 4px;
+.keynoteContent .media-body strong a:hover {
+	background: linear-gradient(135deg, 
+		#0d47a1 0%, 
+		#1565c0 30%,
+		#1976d2 70%,
+		#1e88e5 100%) !important;
+	-webkit-background-clip: text !important;
+	-webkit-text-fill-color: transparent !important;
+	background-clip: text !important;
+	transform: translateX(2px);
+	transition: all 0.3s ease;
 }
 
-/* 在职位和单位前添加装饰符号 */
-.keynoteContent .media-body p em:before {
-	content: '◆ ';
-	color: #CD853F;
-	margin-right: 4px;
+/* 第二行：职位和机构信息 - 统一样式 */
+.keynoteContent .media-body p:nth-child(2),
+.keynoteContent .media-body p:nth-child(3) {
+	margin-bottom: 6px !important;
 }
 
-/* ============================================================================
- * RESPONSIVE DESIGN FOR KEYNOTE SECTIONS - 响应式设计
- * ============================================================================ */
+.keynoteContent .media-body p:nth-child(2) em,
+.keynoteContent .media-body p:nth-child(3) em {
+	font-size: 14px !important;
+	color: rgba(0, 0, 0, 0.7) !important;
+	font-style: normal !important;
+	font-weight: 400 !important;
+	display: block !important;
+	line-height: 1.5 !important;
+}
 
-/* TABLET BREAKPOINT - 平板设备断点 */
+/* 职位信息稍微突出一点 */
+.keynoteContent .media-body p:nth-child(2) em {
+	font-weight: 500 !important;
+	color: rgba(0, 0, 0, 0.75) !important;
+}
+
+/* 机构信息 */
+.keynoteContent .media-body p:nth-child(3) em {
+	margin-bottom: 16px !important;
+}
+
+/* 第四行：Abstract链接 - 行动按钮样式 */
+.keynoteContent .media-body p:last-child {
+	margin-top: 16px !important;
+	padding-top: 16px !important;
+	border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.keynoteContent .media-body p:last-child a {
+	display: inline-block !important;
+	padding: 8px 16px !important;
+	background: linear-gradient(135deg, 
+		rgba(26, 115, 232, 0.1) 0%, 
+		rgba(66, 133, 244, 0.08) 100%) !important;
+	border: 1px solid rgba(26, 115, 232, 0.2) !important;
+	border-radius: 8px !important;
+	color: #1a73e8 !important;
+	font-size: 13px !important;
+	font-weight: 500 !important;
+	text-decoration: none !important;
+	transition: all 0.3s ease !important;
+	font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif !important;
+}
+
+.keynoteContent .media-body p:last-child a:hover {
+	background: linear-gradient(135deg, 
+		rgba(26, 115, 232, 0.15) 0%, 
+		rgba(66, 133, 244, 0.12) 100%) !important;
+	border-color: rgba(26, 115, 232, 0.3) !important;
+	transform: translateY(-1px) !important;
+	box-shadow: 0 4px 12px rgba(26, 115, 232, 0.15) !important;
+}
+
+/* 响应式设计 */
 @media (max-width: 768px) {
-	h3.keynoteHeader {
-		height: 45px;
-		max-width: 90%;
-		margin: 25px auto;
-		border-radius: 22.5px; /* 保持圆柱比例 */
-		/* 简化木纹以提升性能 */
-		background: 
-			repeating-linear-gradient(90deg, 
-				#8B4513 0px, #8B4513 1px, 
-				#A0522D 1px, #A0522D 3px, 
-				#654321 3px, #654321 4px,
-				#8B4513 4px, #8B4513 6px),
-			linear-gradient(135deg, #D2691E 0%, #8B4513 25%, #654321 75%, #A0522D 100%);
-		/* 简化阴影效果 */
-		box-shadow: 
-			0 6px 20px rgba(139, 69, 19, 0.3),
-			0 3px 12px rgba(0, 0, 0, 0.15),
-			inset 0 3px 6px rgba(255, 248, 220, 0.3),
-			inset 0 -3px 6px rgba(0, 0, 0, 0.25);
-	}
-	
-	h3.keynoteHeader::before,
-	h3.keynoteHeader::after {
-		width: 55px;
-		height: 55px;
-		top: -5px;
-		/* 简化端盖纹理 */
-		background: 
-			radial-gradient(circle at 50% 50%, 
-				transparent 6px, #654321 7px, transparent 8px,
-				transparent 10px, #8B4513 11px, transparent 12px,
-				transparent 14px, #A0522D 15px, transparent 16px),
-			radial-gradient(circle at 50% 50%, #D2691E 0%, #8B4513 50%, #654321 100%);
-	}
-	
-	h3.keynoteHeader::before {
-		left: -27.5px;
-	}
-	
-	h3.keynoteHeader::after {
-		right: -27.5px;
-	}
-	
-	.keynoteHeaderText {
-		font-size: 18px;
-		margin-left: 8px;
-	}
-	
-	.keynoteContent.show {
-		padding: 16px;
-		max-height: 6000px;
-		border-radius: 0 0 14px 14px; /* 匹配标题圆角 */
-		margin-top: -18px;
-	}
-	
-	.keynoteContent .panel {
-		border-radius: 10px; /* 稍小的圆角 */
-		margin-bottom: 12px;
-		/* 减少模糊强度 */
-		backdrop-filter: blur(4px);
-		-webkit-backdrop-filter: blur(4px);
-	}
-	
 	.keynoteContent .media {
-		padding: 15px 10px;
-		flex-direction: column;
-		text-align: center;
+		gap: 16px !important;
+		padding: 0 20px 20px 20px !important;
+	}
+	
+	.keynoteContent .panel-heading {
+		padding: 16px 20px 12px 20px !important;
+	}
+	
+	.keynoteContent .media-object {
+		width: 130px !important;
+		height: 170px !important;
+	}
+}
+
+@media (max-width: 480px) {
+	.keynoteContent .media {
+		flex-direction: column !important;
+		text-align: center !important;
+		gap: 12px !important;
 	}
 	
 	.keynoteContent .media-left {
-		padding-right: 0;
-		padding-bottom: 15px;
-		align-self: center;
-	}
-	
-	.keynoteContent .media-object {
-		width: 80px;
-		height: 80px;
-	}
-	
-	.keynoteContent .panel-heading {
-		padding: 10px 12px;
-	}
-	
-	.keynoteContent .panel-title {
-		font-size: 15px;
+		align-self: center !important;
 	}
 }
 
-/* MOBILE BREAKPOINT - 移动设备断点 */
-@media (max-width: 480px) {
-	h3.keynoteHeader {
-		height: 40px;
-		max-width: 95%;
-		margin: 20px auto;
-		border-radius: 20px; /* 保持圆柱比例 */
-		/* 移动端极简化木纹 */
-		background: 
-			linear-gradient(90deg, #8B4513 0%, #A0522D 50%, #654321 100%),
-			linear-gradient(135deg, #D2691E 0%, #8B4513 50%, #A0522D 100%);
-		/* 简化阴影 */
-		box-shadow: 
-			0 4px 15px rgba(139, 69, 19, 0.3),
-			inset 0 2px 4px rgba(255, 248, 220, 0.3),
-			inset 0 -2px 4px rgba(0, 0, 0, 0.2);
-	}
-	
-	h3.keynoteHeader::before,
-	h3.keynoteHeader::after {
-		width: 46px;
-		height: 46px;
-		top: -3px;
-		/* 移动端简化端盖 */
-		background: 
-			radial-gradient(circle at 50% 50%, 
-				#654321 0px, #654321 4px, 
-				#8B4513 6px, #8B4513 10px,
-				#A0522D 12px, #A0522D 16px),
-			radial-gradient(circle at 50% 50%, #D2691E 0%, #8B4513 60%, #654321 100%);
-		box-shadow: 
-			0 3px 10px rgba(139, 69, 19, 0.4),
-			inset 0 2px 4px rgba(255, 248, 220, 0.3),
-			inset 0 -2px 4px rgba(0, 0, 0, 0.3);
-	}
-	
-	h3.keynoteHeader::before {
-		left: -23px;
-	}
-	
-	h3.keynoteHeader::after {
-		right: -23px;
-	}
-	
-	.keynoteHeaderText {
-		font-size: 16px;
-		display: block;
-		margin-left: 0;
-		margin-top: 6px;
-	}
-	
-	.triangle {
-		font-size: 14px;
-		margin-right: 6px;
-	}
-	
-	.keynoteContent.show {
-		border-radius: 0 0 12px 12px;
-		margin-top: -14px;
-		padding: 14px;
-		/* 移动端减少模糊效果 */
-		backdrop-filter: blur(4px);
-		-webkit-backdrop-filter: blur(4px);
-	}
-	
-	.keynoteContent .panel {
-		border-radius: 8px; /* 移动端最小圆角 */
-		/* 最小的模糊效果 */
-		backdrop-filter: blur(2px);
-		-webkit-backdrop-filter: blur(2px);
-		/* 简化阴影 */
-		box-shadow: 
-			0 2px 12px rgba(31, 38, 135, 0.1),
-			0 1px 4px rgba(0, 0, 0, 0.04);
-	}
-	
-	.keynoteContent .media-body p:first-child a {
-		font-size: 16px;
-	}
-	
-	.keynoteContent .media-object {
-		/* 移动端头像优化 */
-		border: 2px solid rgba(255, 255, 255, 0.3);
-		box-shadow: 
-			0 2px 8px rgba(31, 38, 135, 0.15),
-			0 1px 4px rgba(0, 0, 0, 0.06);
-	}
-}
 
-/* ============================================================================
- * BROWSER COMPATIBILITY FALLBACKS - 浏览器兼容性后备方案
- * ============================================================================ */
-
-/* Fallback for browsers that don't support backdrop-filter */
-/* 不支持backdrop-filter的浏览器的后备方案 */
-@supports not (backdrop-filter: blur(10px)) {
-	.keynoteHeader {
-		background: rgba(248, 249, 250, 0.9); /* 更不透明的背景 */
-		border: 1px solid rgba(222, 226, 230, 0.8);
-	}
-	
-	.keynoteContent {
-		background: rgba(255, 255, 255, 0.95);
-		border: 1px solid rgba(233, 236, 239, 0.8);
-	}
-	
-	.keynoteContent .panel {
-		background: rgba(255, 255, 255, 0.9);
-		border: 1px solid rgba(255, 255, 255, 0.6);
-	}
-	
-	.keynoteContent .panel-heading {
-		background: rgba(248, 249, 250, 0.8);
-	}
-}
-
-/* Print styles optimization - 打印样式优化 */
-@media print {
-	.keynoteHeader,
-	.keynoteContent,
-	.keynoteContent .panel {
-		background: #ffffff !important;
-		backdrop-filter: none !important;
-		-webkit-backdrop-filter: none !important;
-		box-shadow: none !important;
-		border: 1px solid #000000 !important;
-	}
-}
-
-/* ============================================================================
- * SCROLL UNFOLD ANIMATION - 卷轴展开动画系统
- * ============================================================================
- * 
- * 模拟中国古典卷轴从上到下徐徐展开的效果
- * Simulates the gradual unfolding of a classical Chinese scroll from top to bottom
- * 
- * ============================================================================ */
-
-/* COLLAPSED SCROLL STATE - 卷轴收起状态 */
-.keynoteContent {
-	overflow: hidden;
-	max-height: 0;
-	opacity: 0;
-	padding: 0 20px;
-	/* 卷轴展开动画 - 模拟从木轴逐渐展开 */
-	transition: 
-		max-height 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-		opacity 0.6s ease-out 0.2s,
-		padding 0.6s ease-out 0.1s;
-	/* 展开时的渐变效果 */
-	transform-origin: top center;
-}
-
-/* EXPANDED SCROLL STATE - 卷轴展开状态 */
-.keynoteContent.show {
-	max-height: 100000000px; /* 足够大的高度容纳内容 */
-	opacity: 1;
-	padding: 25px 30px 30px;
-	/* 添加展开完成的微妙动画 */
-	animation: scrollUnfold 0.8s ease-out;
-}
-
-/* 卷轴展开动画关键帧 */
-@keyframes scrollUnfold {
-	0% {
-		transform: scaleY(0.1);
-		transform-origin: top center;
-	}
-	50% {
-		transform: scaleY(0.7);
-		opacity: 0.8;
-	}
-	100% {
-		transform: scaleY(1);
-		opacity: 1;
-	}
-}
-
-/* 模拟纸张逐渐展开的内容淡入效果 */
-.keynoteContent.show .panel {
-	animation: contentFadeIn 0.6s ease-out forwards;
-	animation-delay: 0.3s;
-	opacity: 0;
-}
-
-.keynoteContent.show .panel:nth-child(2) { animation-delay: 0.4s; }
-.keynoteContent.show .panel:nth-child(3) { animation-delay: 0.5s; }
-.keynoteContent.show .panel:nth-child(4) { animation-delay: 0.6s; }
-.keynoteContent.show .panel:nth-child(5) { animation-delay: 0.7s; }
-
-@keyframes contentFadeIn {
-	0% {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-/* Accessibility Improvements */
-.keynoteHeader:focus {
-	outline: 2px solid #007bff;
-	outline-offset: 2px;
-}
-
-.keynoteContent .panel-title a:focus {
-	outline: 2px solid #007bff;
-	outline-offset: 2px;
-	border-radius: 3px;
-}
-
-/* Print Styles */
-@media print {
-	.keynoteHeader,
-	.keynoteContent {
-		box-shadow: none !important;
-		border: 1px solid #000 !important;
-	}
-	
-	.triangle {
-		display: none !important;
-	}
-	
-	.keynoteContent {
-		max-height: none !important;
-		opacity: 1 !important;
-	}
-}
-
-/* =========end============= */
+/* =====================================================
+   科技感液态玻璃风格结束
+   ===================================================== */
 
 
 body { 
@@ -2967,7 +2292,7 @@ img.img-mouse {
 
 .service-info i.service-info-icon {
 	color: #777;
-	float: left;
+	display: left;
 	width: 50px;
 	height: 50px;
 	padding: 15px;
