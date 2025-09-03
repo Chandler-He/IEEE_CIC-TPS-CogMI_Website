@@ -53,7 +53,7 @@ baseurl1: /cogmi2025
 # baseurl: ..
 # baseurl1: .
 # CSS version for cache busting
-css_version: "20250902181408"
+css_version: "20250902232507"
 
 # bundle exec jekyll serve 
 # Exclude from processing.
