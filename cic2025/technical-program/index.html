@@ -1,0 +1,90 @@
+---
+title: "blank"
+<!-- permalink: pretty -->
+---
+
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en"> <!--<![endif]-->
+
+<head>
+    <title>IEEE CIC 2025</title>
+    {% include head.html %}
+
+</head>
+
+<body class="header-fixed">
+
+    <div class="wrapper">
+        <!--=== Header===-->
+        <div class="header-v3">
+            <!-- <div class="container"></div> -->
+            <!-- Navbar -->
+            {% include navbar.html %}
+            <!-- End Navbar -->
+        </div>
+
+
+
+
+
+
+        <div class="bg-color-light">
+            <div class="news-v3 margin-bottom-30">
+                {% include banner.html %}
+            </div>
+            <!--=== End Header ===-->
+            <div class="breadcrumbs">
+                <div class="container">
+                    <h1 class="pull-left">Conference program</h1>
+                    <ul class="pull-right breadcrumb">
+                        <li><a href="{{ site.baseurl }}/">Home</a></li>
+                        <li class="active">Conference program</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <!-- Contents goes here -->
+                    <div class="col-md-9"><!-- outter container  -->
+                        <div class="news-v3-in">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div id="organizers">
+                                        <h4 id="General">Preliminary Technical Program</h4>
+                                        <ul>
+                                            <li>
+                                                Access the preliminary technical program <a href="{{ site.baseurl }}/assets/files/ver1.pdf">here</a>. Please be aware that it's subject to possible changes.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- right panel begins -->
+                    <div>
+                        {% include sidebar.html %}
+                    </div>
+                </div>
+
+                <!-- end  -->
+            </div>
+
+            <!--=== Footer ===-->
+            {% include footer.html %}
+            <!--=== End Footer ===-->
+        </div>
+
+        <!--=== Scripts ===-->
+        {% include scripts.html %}
+        <!--=== End scripts ===-->
+
+</body>
+
+</html>
