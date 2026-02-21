@@ -1,0 +1,551 @@
+/* Add here all your css styles (customizations) */
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.hero ul li {
+    font-size: 0.85em;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+    font-style: italic
+}
+
+.organizers-type-list {
+    font-size: 0.85em
+}
+
+.organizers-type-list-float {
+    position: fixed;
+    z-index: 999999;
+    top: 20px;
+}
+
+
+
+#organizers h4 {
+    margin: 20px 0 30px;
+    border-left: 7px solid #cc0000;
+    padding-left: 10px;
+    line-height: 0.9;
+}
+
+#organizers ul {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    clear: both;
+    margin-bottom: 1rem;
+    border-bottom: 1px dotted #e1e2e3
+}
+
+
+
+#organizers ul li.person-card {
+    list-style: none;
+    width: 33%;
+    float: left;
+    height: 260px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.5;
+    color: #999
+}
+
+#organizers ul li.person-card a {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold
+}
+
+#organizers ul li.person-card a img {
+    /* width: 170px; */
+    max-height: 200px;
+    display: block;
+    margin: 0 auto 5px;
+    padding: 2px;
+    border: 1px solid #f1f2f3;
+    border-radius: 6px !important;
+}
+#organizers ul li.person-card .affiliation {
+    display: block;
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 0.5em;
+}
+
+
+blockquote.hero {
+    border-left: solid 2px #e1e2e3;
+}
+
+.hero ul {
+    padding: 0 20px 0 20px
+}
+
+.news-v3 p,
+.save_the_date p {
+    word-spacing: 0.1rem;
+    line-height: 2;
+    text-align: justify;
+}
+
+.news-v3-in h3 {
+    font-size: 1.5rem !important;
+    color: #717273
+}
+
+.news-v3-in h3 strong {
+    display: block;
+    font-size: 2rem;
+    color: #555
+}
+
+
+.sponsorship-table {
+    /* Sponsorship table base styles */
+}
+
+.sponsorship-table th,
+.sponsorship-table td {
+    vertical-align: middle !important;
+    word-break: break-all
+}
+
+.sponsorship-table ul {
+    margin-bottom: 0
+}
+
+.sponsorship-table ul li {
+    margin: 5px 0 10px;
+    font-size: 0.9em
+}
+
+
+.sponsor-class {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddf;
+}
+
+.sponsor-container {
+    height: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center }
+
+.sponsor-container img {
+    margin: 0 }
+
+@media(max-width: 999px) {
+
+    /* for mobile */
+    #organizers ul li.person-card {
+        width: 50%;
+        height: 200px;
+    }
+
+    #organizers ul li.person-card a img {
+        width: 80%;
+        height: 80%;
+    }
+
+
+    blockquote.hero {
+        border-left: solid 2px #e1e2e3;
+    }
+
+    .hero ul li {
+        font-style: inherit;
+        font-size: 13px;
+        line-height: 1.6
+    }
+
+
+    .hero ul {
+        padding: 0 10px 0 10px
+    }
+
+    .news-v3 .news-v3-in {
+        padding: 30px 20px
+    }
+
+    .news-v3 p,
+    .save_the_date p {
+        text-align: justify;
+        font-size: 13px;
+    }
+
+    .timeline-v2>li {
+        text-align: left
+    }
+
+}
+
+@media(min-width: 999px) {
+
+    /* for PC */
+    .timeline-v2>li .cbp_tmtime span:first-child {
+        font-size: 16px;
+        color: #9e0808;
+        font-weight: 800;
+    }
+
+    .timeline-v2:before {
+        left: 20%
+    }
+
+    .timeline-v2>li .cbp_tmlabel {
+        margin-left: 21%
+    }
+
+    .timeline-v2>li .cbp_tmicon {
+        left: 20%
+    }
+}
+
+
+.accepted-papers-caption strong {
+    margin: 30px 0 15px
+}
+
+.accepted-papers-table {
+    font-size: 13px;
+    border: 1px solid #eee
+}
+
+.accepted-papers-table td {
+    border: 1px solid #eee;
+    padding: 10px
+}
+
+.accepted-papers-table tr td:nth-child(1) {
+    background: #f7f7f7;
+    font-weight: bold;
+    font-size: 12px;
+    width: 300px
+}
+
+.accepted-papers-caption-new {
+    padding: 50px 0 20px;
+    color: #2c2c2c
+}
+
+.accepted-papers-caption-new strong {
+    font-size: 3rem !important;
+}
+
+#FullPaper {
+    padding: 0px 0 20px
+}
+
+.accepted-papers-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0 !important;
+    word-spacing: 0.1rem;
+}
+
+.accepted-papers-authors {
+    font-size: 1.5rem;
+    margin: 0 0 20px;
+    word-spacing: 0.1rem;
+}
+
+.default-table th {
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    font-weight:normal;
+    overflow:hidden;
+    padding:10px 5px;
+    text-align:left;
+    vertical-align:top;
+    word-break:normal
+}
+
+.default-table td {
+    border-color:black;
+    border-style:solid;
+    border-width:1px;
+    overflow:hidden;
+    font-size:0.8em;
+    padding:10px 5px;
+    text-align:left;
+    vertical-align:top;
+    word-break:normal   
+}
+
+.default-ul ul {
+    font-size: 13px;
+}
+
+/* Elegant Collapsible Panels for Accepted Papers */
+.panel-group-elegant {
+    margin-bottom: 20px;
+}
+
+.panel-elegant {
+    background-color: #ffffff;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.panel-elegant:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.panel-heading-elegant {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-bottom: none;
+    border-radius: 7px 7px 0 0;
+    padding: 0;
+}
+
+.panel-title-elegant {
+    margin: 0;
+}
+
+.panel-title-elegant a {
+    display: block;
+    padding: 18px 25px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.panel-title-elegant a:hover,
+.panel-title-elegant a:focus {
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255,255,255,0.1);
+}
+
+.panel-title-elegant a:after {
+    content: '\f107';
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+    font-size: 18px;
+}
+
+.panel-title-elegant a.collapsed:after {
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.panel-collapse-elegant {
+    border-radius: 0 0 7px 7px;
+    overflow: hidden;
+}
+
+.panel-body-elegant {
+    padding: 25px;
+    background-color: #fafafa;
+    border-radius: 0 0 7px 7px;
+}
+
+.paper-count-badge {
+    background: rgba(255,255,255,0.2);
+    color: #ffffff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e8e8e8, transparent);
+    margin: 10px 0;
+}
+
+/* Override accepted papers styles for elegant panels */
+.panel-body-elegant .accepted-papers-title {
+    color: #2c3e50;
+    font-weight: 600;
+    margin: 15px 0 8px 0;
+    padding-left: 15px;
+    border-left: 3px solid #667eea;
+    font-size: 1.3rem;
+}
+
+.panel-body-elegant .accepted-papers-authors {
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 15px;
+    padding-left: 18px;
+    font-size: 1.2rem;
+}
+
+/* Nested Sub-Panels for Rounds */
+.sub-panel-group {
+    margin: -10px -15px 10px -15px;
+}
+
+.sub-panel {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.sub-panel-heading {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    border-radius: 5px 5px 0 0;
+    padding: 0;
+}
+
+.sub-panel-title {
+    margin: 0;
+}
+
+.sub-panel-title a {
+    display: block;
+    padding: 12px 18px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.sub-panel-title a:hover,
+.sub-panel-title a:focus {
+    color: #ffffff;
+    text-decoration: none;
+    background: rgba(255,255,255,0.1);
+}
+
+.sub-panel-title a:after {
+    content: '\f107';
+    font-family: 'FontAwesome';
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    transition: transform 0.2s ease;
+    font-size: 14px;
+}
+
+.sub-panel-title a.collapsed:after {
+    transform: translateY(-50%) rotate(-90deg);
+}
+
+.sub-panel-title a[aria-expanded="true"]:after {
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sub-panel-body {
+    padding: 15px 18px;
+    background-color: #ffffff;
+    border-radius: 0 0 5px 5px;
+}
+
+.round-badge {
+    background: rgba(255,255,255,0.25);
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+/* Round-specific gradient colors */
+.round1-gradient {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%) !important;
+}
+
+.round2-gradient {
+    background: linear-gradient(135deg, #007bff 0%, #6610f2 100%) !important;
+}
+
+/* Mobile-specific fixes for touch devices */
+@media (max-width: 768px) {
+    /* Ensure touch targets are large enough */
+    .panel-title-elegant a,
+    .sub-panel-title a {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .panel-title-elegant a:hover,
+    .sub-panel-title a:hover {
+        background: none;
+    }
+    
+    /* Add active state for better touch feedback */
+    .panel-title-elegant a:active,
+    .sub-panel-title a:active {
+        background: rgba(255,255,255,0.2) !important;
+        transform: scale(0.98);
+        transition: all 0.1s ease;
+    }
+    
+    /* Ensure panels are properly spaced on mobile */
+    .panel-elegant {
+        margin-bottom: 10px;
+    }
+    
+    .sub-panel {
+        margin-bottom: 8px;
+    }
+    
+    /* Increase padding for better touch experience */
+    .panel-body-elegant {
+        padding: 20px 15px;
+    }
+    
+    .sub-panel-body {
+        padding: 12px 15px;
+    }
+}
+
+/* iOS specific fixes */
+.ios-device .panel-title-elegant a,
+.ios-device .sub-panel-title a {
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+
+/* Android specific fixes */
+@media screen and (max-device-width: 768px) and (orientation: portrait),
+       screen and (max-device-width: 1024px) and (orientation: landscape) {
+    .panel-title-elegant a,
+    .sub-panel-title a {
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+    }
+    
+    /* Ensure smooth scrolling */
+    .panel-body-elegant,
+    .sub-panel-body {
+        -webkit-overflow-scrolling: touch;
+    }
+}
