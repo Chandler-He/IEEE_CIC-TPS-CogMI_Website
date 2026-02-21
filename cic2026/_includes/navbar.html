@@ -1,0 +1,82 @@
+<div class="navbar navbar-default mega-menu" role="navigation">
+    <div class="container container-space">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="fa fa-bars"></span>
+            </button>
+            <a class="navbar-brand brand-style" href="{{ site.baseurl }}/">
+                <img id="logo-header" src="{{ site.baseurl }}/assets/img/IEEE-CS_LogoTM-black.png" width="200" alt="Logo">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+                <!-- <li class=""><a href="../index.html" style="font-weight: 1000; color:black">IEEE CIC</a></li> -->
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Calls</a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="{{ site.baseurl }}/call-for-papers">Call for Papers</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Call for Papers</a></li>
+                        <!-- <li><a href="{{ site.baseurl }}/camera-ready">Camera-Ready Instructions</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Camera-Ready Instructions</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Program</a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="{{ site.baseurl }}/keynotes">Keynotes</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Keynotes</a></li>
+                        <!-- <li><a href="{{ site.baseurl }}/panels">Panels</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Panels</a></li>
+                        <!-- <li><a href="{{ site.baseurl }}/technical-program">Technical Program</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Technical Program</a></li>
+                        <!-- <li><a href="{{ site.baseurl }}/awards">Awards</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Awards</a></li>
+                        <!-- <li><a href="{{ site.baseurl }}/accepted-papers">Accepted Papers</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Accepted Papers</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Attend</a>
+                        <ul class="dropdown-menu">
+                            <!-- <li><a href="{{ site.baseurl }}/registration">Registration</a></li> -->
+                            <li><a href="{{ site.baseurl }}/blank-page">Registration</a></li>
+                            <!-- <li><a href="{{ site.baseurl }}/travel-grants">Travel Grants</a></li> -->
+                            <li><a href="{{ site.baseurl }}/blank-page">Travel Grants</a></li>
+                            <!-- <li><a href="{{ site.baseurl }}/travel">Travel/Hotel</a></li> -->
+                            <li><a href="{{ site.baseurl }}/blank-page">Travel/Hotel</a></li>
+                        </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Committees</a>
+                    <ul class="dropdown-menu">                            
+                        <!-- <li><a href="{{ site.baseurl }}/steerings">Steering Committees</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Steering Committees</a></li>
+                        <!-- <li><a href="{{ site.baseurl }}/organizers">Organizing Committees</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Organizing Committees</a></li>
+                        <!-- <li><a href="{{ site.baseurl }}/pcs">Program Committees</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Program Committees</a></li>
+                    </ul> 
+                </li>
+
+                
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Past Conference</a>
+                    <ul class="dropdown-menu">
+                        {% for year in (2015..2025) reversed %}
+                        <li><a href="https://www.sis.pitt.edu/lersais/conference/cic/{{ year }}/" target="_blank">CIC {{ year }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown">Sponsors</a>
+                    <ul class="dropdown-menu">
+                        <!-- <li><a href="{{ site.baseurl }}/call-for-sponsors">Call for sponsors</a></li> -->
+                        <li><a href="{{ site.baseurl }}/blank-page">Call for sponsors</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
