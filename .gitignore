@@ -1,5 +1,5 @@
 .DS_Store
 **/.jekyll-cache
 **/_site/
-/CIC2026/
-/CogMI2026/
+**/cic**/
+**/cogmi**/
