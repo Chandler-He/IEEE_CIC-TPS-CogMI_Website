@@ -927,3 +927,16 @@ topbar including in mobile version*/
 		top: 22px;
 	}
 }
+
+/*--------------------------------------------------
+    [7. Mobile Dropdown Click Support]
+----------------------------------------------------*/
+@media (max-width: 991px) {
+	.header-v2 .navbar-nav .dropdown.open > .dropdown-menu {
+		display: block !important;
+	}
+
+	.header-v2 .dropdown-submenu.open > .dropdown-menu {
+		display: block !important;
+	}
+}
