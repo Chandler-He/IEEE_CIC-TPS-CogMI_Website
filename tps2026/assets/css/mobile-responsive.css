@@ -1,0 +1,207 @@
+/*
+ * Mobile Responsive Optimizations for TPS 2026
+ * Added to fix mobile dropdown menu issues and improve responsive design
+ */
+
+/* General mobile optimizations */
+@media (max-width: 768px) {
+    /* Improve text readability on mobile */
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    /* Make sure containers don't overflow */
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Improve button touch targets */
+    .btn, .navbar-toggle, .dropdown-toggle {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px 16px;
+    }
+
+    /* Improve table responsiveness */
+    .table-responsive {
+        border: none;
+    }
+
+    /* Fix image responsiveness */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Mobile-specific navbar improvements */
+@media (max-width: 767px) {
+    /* Ensure navbar toggle is always visible and accessible */
+    .navbar-toggle {
+        display: block !important;
+        float: right;
+        margin-right: 15px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    /* Improve navbar brand on mobile */
+    .navbar-brand {
+        max-width: 70%;
+        padding: 10px 15px;
+    }
+
+    .navbar-brand img {
+        max-height: 40px;
+        width: auto;
+    }
+
+    /* Improve mobile navigation spacing */
+    .navbar-nav {
+        margin: 0 !important;
+    }
+
+    .navbar-nav > li > a {
+        padding: 15px 20px !important;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-size: 16px;
+    }
+
+    /* Mobile dropdown improvements */
+    .navbar-nav .dropdown-menu {
+        position: static !important;
+        float: none !important;
+        width: auto !important;
+        background-color: rgba(0,0,0,0.05);
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        margin-left: 20px;
+    }
+
+    .navbar-nav .dropdown-menu > li > a {
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+        color: #666 !important;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    /* Further reduce padding on small screens */
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Make text larger for readability */
+    body {
+        font-size: 18px;
+    }
+
+    /* Improve navbar brand for small screens */
+    .navbar-brand {
+        max-width: 60%;
+    }
+
+    .navbar-brand img {
+        max-height: 35px;
+    }
+
+    /* Improve form elements */
+    .form-control {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 12px;
+    }
+
+    /* Improve button sizing */
+    .btn {
+        font-size: 16px;
+        padding: 14px 20px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 320px) {
+    .navbar-brand {
+        max-width: 50%;
+    }
+
+    .navbar-brand img {
+        max-height: 30px;
+    }
+
+    .container {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (pointer: coarse) {
+    /* Improve touch targets */
+    a, button, .btn, .dropdown-toggle {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Add touch feedback */
+    .navbar-nav > li > a,
+    .navbar-nav .dropdown-menu > li > a {
+        transition: background-color 0.2s ease;
+    }
+
+    .navbar-nav > li > a:active,
+    .navbar-nav .dropdown-menu > li > a:active {
+        background-color: rgba(0,0,0,0.1) !important;
+    }
+}
+
+/* Landscape mobile optimizations */
+@media (max-width: 768px) and (orientation: landscape) {
+    .navbar-collapse {
+        max-height: 200px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Fix for iOS Safari bounce scrolling */
+@media (max-width: 768px) {
+    .navbar-collapse.in {
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Accessibility improvements */
+@media (max-width: 768px) {
+    /* Improve focus indicators */
+    .navbar-toggle:focus,
+    .navbar-nav > li > a:focus,
+    .navbar-nav .dropdown-menu > li > a:focus {
+        outline: 2px solid #5cb85c;
+        outline-offset: 2px;
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .navbar-nav > li > a,
+        .navbar-nav .dropdown-menu > li > a {
+            border: 1px solid;
+        }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+        .navbar-nav .dropdown-menu,
+        .navbar-collapse {
+            transition: none !important;
+        }
+    }
+}

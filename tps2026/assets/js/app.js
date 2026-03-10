@@ -23,7 +23,46 @@ var App = function () {
     function handleMegaMenu() {
         jQuery(document).on('click', '.mega-menu .dropdown-menu', function(e) {
             e.stopPropagation();
-        })
+        });
+
+        // Mobile dropdown support (hover doesn't work on mobile)
+        if (jQuery(window).width() <= 991) {
+            // Toggle dropdown on click
+            jQuery('.navbar-nav .dropdown > a').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var $parent = jQuery(this).parent('.dropdown');
+
+                if ($parent.hasClass('open')) {
+                    $parent.removeClass('open');
+                } else {
+                    jQuery('.navbar-nav .dropdown').removeClass('open');
+                    $parent.addClass('open');
+                }
+            });
+
+            // Toggle navbar collapse on click
+            jQuery('.navbar-toggle').on('click', function(e) {
+                e.preventDefault();
+                var $target = jQuery(jQuery(this).data('target'));
+                $target.toggleClass('in');
+            });
+
+            // Close menu when clicking outside
+            jQuery(document).on('click', function(e) {
+                if (!jQuery(e.target).closest('.navbar').length) {
+                    jQuery('.navbar-collapse').removeClass('in');
+                    jQuery('.navbar-nav .dropdown').removeClass('open');
+                }
+            });
+        }
+
+        // Re-init on resize
+        jQuery(window).on('resize', function() {
+            if (jQuery(window).width() > 991) {
+                jQuery('.navbar-nav .dropdown').removeClass('open');
+            }
+        });
     }
 
     //Search Box (Header)
@@ -165,7 +204,18 @@ var App = function () {
 
         //Animate Dropdown
         initAnimateDropdown: function () {
-            function MenuMode() {
+            console.log('=== DROPDOWN INIT DEBUG ===');
+            console.log('Window width:', jQuery(window).width());
+            console.log('Dropdown elements found:', jQuery('.navbar-nav .dropdown').length);
+            console.log('Toggle elements found:', jQuery('.navbar-nav .dropdown > a[data-toggle="dropdown"]').length);
+
+            // List all dropdown elements
+            jQuery('.navbar-nav .dropdown > a[data-toggle="dropdown"]').each(function(i) {
+                console.log('Dropdown ' + i + ':', jQuery(this).text().trim());
+            });
+
+            function DesktopMenuMode() {
+                console.log('Desktop menu mode activated');
                 jQuery('.dropdown').on('show.bs.dropdown', function(e){
                     jQuery(this).find('.dropdown-menu').first().stop(true, true).slideDown();
                 });
@@ -173,16 +223,87 @@ var App = function () {
                     jQuery(this).find('.dropdown-menu').first().stop(true, true).slideUp();
                 });
             }
-         
-            jQuery(window).resize(function(){
-                if (jQuery(window).width() > 768) {
-                    MenuMode();
+
+            function MobileMenuMode() {
+                console.log('=== MOBILE MODE ACTIVATED ===');
+
+                // Simple test - just add click handler to ALL dropdown links
+                jQuery('.navbar-nav .dropdown > a').off('click.debugMobile').on('click.debugMobile', function(e) {
+                    console.log('=== ANY DROPDOWN CLICKED ===');
+                    console.log('Element clicked:', jQuery(this).text().trim());
+                    console.log('Element HTML:', jQuery(this).prop('outerHTML'));
+                    console.log('Parent classes:', jQuery(this).parent().attr('class'));
+
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    var $parent = jQuery(this).parent();
+                    var $menu = $parent.find('.dropdown-menu');
+
+                    console.log('Menu element found:', $menu.length > 0);
+                    console.log('Current open state:', $parent.hasClass('open'));
+
+                    // Simple toggle
+                    if ($parent.hasClass('open')) {
+                        $parent.removeClass('open');
+                        console.log('Removed open class');
+                    } else {
+                        // Close all others
+                        jQuery('.navbar-nav .dropdown').removeClass('open');
+                        // Open this one
+                        $parent.addClass('open');
+                        console.log('Added open class');
+                    }
+
+                    console.log('New open state:', $parent.hasClass('open'));
+                    console.log('=== END CLICK HANDLER ===');
+                });
+
+                // Navbar toggle
+                jQuery('.navbar-toggle').off('click.debugMobile').on('click.debugMobile', function(e) {
+                    console.log('=== NAVBAR TOGGLE CLICKED ===');
+                    e.preventDefault();
+
+                    var $target = jQuery(jQuery(this).data('target'));
+                    console.log('Target element:', $target.length);
+                    console.log('Current state:', $target.hasClass('in'));
+
+                    if ($target.hasClass('in')) {
+                        $target.removeClass('in');
+                        jQuery(this).attr('aria-expanded', 'false');
+                        console.log('Navbar closed');
+                    } else {
+                        $target.addClass('in');
+                        jQuery(this).attr('aria-expanded', 'true');
+                        console.log('Navbar opened');
+                    }
+                });
+            }
+
+            function initMenuMode() {
+                console.log('=== INIT MENU MODE ===');
+                var width = jQuery(window).width();
+                console.log('Current width:', width);
+
+                // Clean up first
+                jQuery('.navbar-nav .dropdown > a').off('.debugMobile');
+                jQuery('.navbar-toggle').off('.debugMobile');
+                jQuery('.dropdown').off('show.bs.dropdown hide.bs.dropdown');
+
+                if (width > 768) {
+                    console.log('Activating desktop mode');
+                    DesktopMenuMode();
+                } else {
+                    console.log('Activating mobile mode');
+                    MobileMenuMode();
                 }
+            }
+
+            jQuery(window).resize(function(){
+                initMenuMode();
             });
 
-            if (jQuery(window).width() > 768) {
-                MenuMode();
-            }
+            initMenuMode();
         },
 
     };

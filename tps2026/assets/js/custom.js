@@ -1,7 +1,13 @@
-// Fix for mobile dropdown/collapse issues
+// Fix for mobile dropdown/collapse issues and navbar support
 $(document).ready(function() {
-    // Enable touch support for Bootstrap collapse
+    // Enable touch support for Bootstrap collapse and navbar
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+
+        // Don't interfere with app.js navbar handling
+        // App.js handles navbar toggle and dropdown behavior
+
+        // Only handle accordion-specific touch events
+        // (Keep existing accordion code but avoid navbar interference)
         // Add touch-friendly behavior for accordion panels
         $('.panel-title-elegant a, .sub-panel-title a').on('touchstart', function(e) {
             // Prevent double-tap zoom
