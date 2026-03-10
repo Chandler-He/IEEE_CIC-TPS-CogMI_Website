@@ -811,6 +811,19 @@
 	.header-fixed .header-v3.header-fixed-shrink .search-open {
 		top: 95px;
 		border-top: none;
-		background: rgba(255,255,255, 0.9);	
+		background: rgba(255,255,255, 0.9);
+	}
+}
+
+/*--------------------------------------------------
+    [7. Mobile Dropdown Click Support]
+----------------------------------------------------*/
+@media (max-width: 991px) {
+	.header-v3 .navbar-nav .dropdown.open > .dropdown-menu {
+		display: block !important;
+	}
+
+	.header-v3 .dropdown-submenu.open > .dropdown-menu {
+		display: block !important;
 	}
 }

@@ -23,7 +23,46 @@ var App = function () {
     function handleMegaMenu() {
         jQuery(document).on('click', '.mega-menu .dropdown-menu', function(e) {
             e.stopPropagation();
-        })
+        });
+
+        // Mobile dropdown support (hover doesn't work on mobile)
+        if (jQuery(window).width() <= 991) {
+            // Toggle dropdown on click
+            jQuery('.navbar-nav .dropdown > a').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                var $parent = jQuery(this).parent('.dropdown');
+
+                if ($parent.hasClass('open')) {
+                    $parent.removeClass('open');
+                } else {
+                    jQuery('.navbar-nav .dropdown').removeClass('open');
+                    $parent.addClass('open');
+                }
+            });
+
+            // Toggle navbar collapse on click
+            jQuery('.navbar-toggle').on('click', function(e) {
+                e.preventDefault();
+                var $target = jQuery(jQuery(this).data('target'));
+                $target.toggleClass('in');
+            });
+
+            // Close menu when clicking outside
+            jQuery(document).on('click', function(e) {
+                if (!jQuery(e.target).closest('.navbar').length) {
+                    jQuery('.navbar-collapse').removeClass('in');
+                    jQuery('.navbar-nav .dropdown').removeClass('open');
+                }
+            });
+        }
+
+        // Re-init on resize
+        jQuery(window).on('resize', function() {
+            if (jQuery(window).width() > 991) {
+                jQuery('.navbar-nav .dropdown').removeClass('open');
+            }
+        });
     }
 
     //Search Box (Header)
