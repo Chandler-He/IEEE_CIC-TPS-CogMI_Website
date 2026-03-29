@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.sis.pitt.edu/tps2026/sitemap.xml
+Sitemap: https://www.sis.pitt.edu/tps2026/feed.xml
+
+# Important pages for crawling
+Allow: /tps2026/
+Allow: /tps2026/call-for-papers/
+Allow: /tps2026/committee/
+Allow: /tps2026/program/
+Allow: /tps2026/registration/
+
+# Block unnecessary files
+Disallow: /tps2026/assets/
+Disallow: /tps2026/_site/
